@@ -101,6 +101,8 @@ in Computational Science. In the course, we talked about good software &hellip;"
 
 <time datetime="2012-05-18T12:00:00-04:00" pubdate data-updated="true">May 18<span>th</span>, 2012</time>
         
+         | <a href="#disqus_thread">Comments</a>
+        
       </p>
     
   </header>
@@ -253,7 +255,7 @@ we would invoke this version of binary search:</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>We overload <code>operator()</code> to allow IntComp objects to be invoked like functions,
+<p>We overload <code>operator()</code> to allow <code>IntComp</code> objects to be invoked like functions,
 and we pass an instance of <code>IntComp</code> to <code>binary_search2</code> whenever we perform
 a binary search on an array of ints.</p>
 
@@ -286,7 +288,9 @@ But, we have actually done more than this. In C++, iterators overload pointer
 syntax to represent collections of items. Using iterators, we can represent
 an entire range of items in a collection with only two iterators&#8211;one pointing
 to the beginning of the collection, and one pointing to the &#8220;position&#8221; after
-the last element in the collection. In our example, however, we represent
+the last element in the collection.
+See the CS 207 blog entries <a href="http://read.seas.harvard.edu/cs207/2012/">here</a>
+for more information on C++ iterators. In our example, however, we represent
 the array collection with a pointer to the first position and the number
 of items in the list. Because binary search requires random access into our
 collection, <em>any collection represented by a random access iterator</em> will be
@@ -311,7 +315,7 @@ into the array. This is okay because the return value only indicates the index
 that one <em>could</em> insert an item and maintain the sorted property of the array.</p>
 
 <p>To implement this, we can think of the array as a collection of boolean values
-where the entries are <code>false, false, ..., false, true, true, ... true</code> (all
+where the entries are <code>{false, false, ..., false, true, true, ... true}</code> (all
 the falses occur together at the beginning of the array). The boolean values
 correspond to whether our target element <code>x</code> is less than or equal to the
 value in that array position. Our goal, then, is to find the first <code>true</code> in
@@ -367,6 +371,8 @@ the lower bound idea:</p>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>Nice, clean, and simple!</p>
 
 <p>Note that this version uses only <em>one</em> comparison instead of two (as we did
 in attempts #1 and #2)! This lower bound idea not only tells us whether our
@@ -520,7 +526,7 @@ post condition of the function. Thus, the statement <code>l &lt;= R &lt;= r</cod
 leaving the loop. To ensure that the loop terminates, we require a
 <strong>decrementing function</strong>, a function that decreases on each iteration of
 the loop and is equal to zero when the loop terminates. In this case, the
-obvious choice for the decreming function would be <code>d = r - l</code>. We show
+obvious choice for the decrementing function would be <code>d = r - l</code>. We show
 in both branches that the new values of <code>l</code> and <code>r</code> are such that
 <code>r_new - l_new &lt; r - l</code>, and so <code>d</code> decreases on each iteration. When
 <code>d = 0</code>, we have that <code>l = r</code>, which is indeed when the loop terminates. Thus,
@@ -572,6 +578,8 @@ for each version of binary search), check out the source
   
   
   
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
 
     
@@ -583,6 +591,12 @@ for each version of binary search), check out the source
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -659,7 +673,32 @@ for each version of binary search), check out the source
 </footer>
   
 
+<script type="text/javascript">
+      var disqus_shortname = 'kennyyu';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://kennyyu.github.com/blog/2012/05/18/binary-search/';
+        var disqus_url = 'http://kennyyu.github.com/blog/2012/05/18/binary-search/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 

@@ -12,8 +12,11 @@ This past semester, I took a graduate course,
 in Computational Science. In the course, we talked about good software 
 engineering practices in C++ (but the lessons span beyond C++), in particular
 representation invariants, abstraction functions, and writing solid code
-specifications so that one could even prove things about code. Early in the
-semester, we discussed several implementations of binary search, starting
+specifications so that one could even prove things about code. The professor made
+a couple of [blog](http://read.seas.harvard.edu/cs207/2012/)
+ entries for some of the lectures, explaining cool tricks with iterators and bits. 
+
+Early in the semester, we discussed several implementations of binary search, starting
 from a simplistic version and incrementally building up to a production-ready
 version. I thought the binary search discussion was an extremely eye-opening
 exercise; it was my first time seeing invariants being used in proofs to prove
@@ -91,7 +94,7 @@ int main(void) {
   return 0;
 }
 {% endcodeblock %}
-We overload `operator()` to allow IntComp objects to be invoked like functions,
+We overload `operator()` to allow `IntComp` objects to be invoked like functions,
 and we pass an instance of `IntComp` to `binary_search2` whenever we perform
 a binary search on an array of ints. 
 
@@ -102,15 +105,15 @@ int mid = (lo + hi) / 2;
 {% endcodeblock %}
 whereas in attempt #2, we replaced this line with:
 {% codeblock lang:cpp %}
-int m = l + (h - l) / 2;
+int m = l + (r - l) / 2;
 {% endcodeblock %}
 For all these years, I've been writing binary search incorrectly! In the first
 version, we may run into integer overflow if `lo + hi` happen to be greater
 than the maximum integer value for `int`! In the second version, we fix this
-subtle bug by first subtracting `h` and `l`, then halving the difference and
+subtle bug by first subtracting `r` and `l`, then halving the difference and
 add the result to `l` to calculate the new middle index `m`. By subtracting
-first, we are guaranteed that `h - l` will not overflow (by the implicit
-precondition that `h` and `l` are valid indices into the array and `h > l`), 
+first, we are guaranteed that `r - l` will not overflow (by the implicit
+precondition that `r` and `l` are valid indices into the array and `r > l`), 
 and thus `m` will also be a valid index into the array. 
 
 We have generalized our binary search to work on an array containing any type.
@@ -118,7 +121,9 @@ But, we have actually done more than this. In C++, iterators overload pointer
 syntax to represent collections of items. Using iterators, we can represent
 an entire range of items in a collection with only two iterators--one pointing
 to the beginning of the collection, and one pointing to the "position" after
-the last element in the collection. In our example, however, we represent
+the last element in the collection. 
+See the CS 207 blog entries [here](http://read.seas.harvard.edu/cs207/2012/) 
+for more information on C++ iterators. In our example, however, we represent
 the array collection with a pointer to the first position and the number
 of items in the list. Because binary search requires random access into our 
 collection, *any collection represented by a random access iterator* will be
@@ -143,7 +148,7 @@ into the array. This is okay because the return value only indicates the index
 that one *could* insert an item and maintain the sorted property of the array.
 
 To implement this, we can think of the array as a collection of boolean values
-where the entries are `false, false, ..., false, true, true, ... true` (all
+where the entries are `{false, false, ..., false, true, true, ... true}` (all
 the falses occur together at the beginning of the array). The boolean values
 correspond to whether our target element `x` is less than or equal to the
 value in that array position. Our goal, then, is to find the first `true` in
@@ -175,6 +180,8 @@ int lower_bound(T *a, int n, T x, CMP compare) {
   return l;
 }
 {% endcodeblock %}
+Nice, clean, and simple! 
+
 Note that this version uses only *one* comparison instead of two (as we did
 in attempts #1 and #2)! This lower bound idea not only tells us whether our
 element `x` is the array, but where we should place it to keep the list sorted!
@@ -261,7 +268,7 @@ post condition of the function. Thus, the statement `l <= R <= r` is a
 leaving the loop. To ensure that the loop terminates, we require a
 **decrementing function**, a function that decreases on each iteration of
 the loop and is equal to zero when the loop terminates. In this case, the 
-obvious choice for the decreming function would be `d = r - l`. We show
+obvious choice for the decrementing function would be `d = r - l`. We show
 in both branches that the new values of `l` and `r` are such that
 `r_new - l_new < r - l`, and so `d` decreases on each iteration. When
 `d = 0`, we have that `l = r`, which is indeed when the loop terminates. Thus,

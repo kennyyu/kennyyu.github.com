@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: binary search | kennary island]]></title>
+  <link href="http://kennyyu.github.com/blog/categories/binary-search/atom.xml" rel="self"/>
+  <link href="http://kennyyu.github.com/"/>
+  <updated>2012-05-17T17:28:10-04:00</updated>
+  <id>http://kennyyu.github.com/</id>
+  <author>
+    <name><![CDATA[Kenny Yu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A Twist on Binary Search]]></title>
+    <link href="http://kennyyu.github.com/blog/2012/05/18/binary-search/"/>
+    <updated>2012-05-18T12:00:00-04:00</updated>
+    <id>http://kennyyu.github.com/blog/2012/05/18/binary-search</id>
+    <content type="html"><![CDATA[<p>This past semester, I took a graduate course,
+<a href="http://iacs.seas.harvard.edu/courses/cs207/">CS 207</a> - Systems Development
+in Computational Science. In the course, we talked about good software
+engineering practices in C++ (but the lessons span beyond C++), in particular
+representation invariants, abstraction functions, and writing solid code
+specifications so that one could even prove things about code. The professor made
+a couple of <a href="http://read.seas.harvard.edu/cs207/2012/">blog</a>
+ entries for some of the lectures, explaining cool tricks with iterators and bits.</p>
+
+<p>Early in the semester, we discussed several implementations of binary search, starting
+from a simplistic version and incrementally building up to a production-ready
+version. I thought the binary search discussion was an extremely eye-opening
+exercise; it was my first time seeing invariants being used in proofs to prove
+properties about code.</p>
+
+<p>Below is how I've written binary search since high school:
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Binary Search, Attempt #1 - search.cpp </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">index</span> <span class="n">of</span> <span class="n">any</span> <span class="n">occurrence</span> <span class="n">of</span> <span class="err">@</span><span class="n">a</span> <span class="n">x</span> <span class="n">in</span> <span class="err">@</span><span class="n">a</span> <span class="n">a</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">pre</span> <span class="err">@</span><span class="n">a</span> <span class="n">a</span> <span class="n">has</span> <span class="n">length</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">n</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">pre</span> <span class="err">@</span><span class="n">a</span> <span class="n">a</span> <span class="n">is</span> <span class="n">sorted</span> <span class="n">in</span> <span class="n">increasing</span> <span class="n">order</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">not</span> <span class="n">found</span>
+</span><span class='line'> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">binary_search</span><span class="p">(</span><span class="kt">int</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">lo</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">while</span> <span class="p">(</span><span class="n">lo</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="n">hi</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">a</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">mid</span><span class="p">;</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">a</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span>
+</span><span class='line'>  <span class="n">hi</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="n">lo</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+Here, I am using <a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a> style comments
+for my specifications. In this version of binary search, I return the index of
+<em>any</em> occurence of item <code>x</code> in array <code>a</code>, or return <code>-1</code> if there is no such
+occurrence. While this implementation is acceptable for an array of ints, it
+is not particularly useful for other data types.</p>
+
+<p>Using C++ templates, we can generalize this implementation to make it
+polymorphic for any type <code>T</code>, provided we provide a suitable comparison function
+<code>compare</code> where <code>compare(p,q)</code> returns true if and only if <code>p</code> is less than <code>q</code>
+for some ordering of values of type <code>T</code>. Thus, here is our attempt #2 at binary
+search:
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Binary Search, Attempt #2 - search.cpp </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">index</span> <span class="n">of</span> <span class="n">any</span> <span class="n">occurrence</span> <span class="n">of</span> <span class="err">@</span><span class="n">a</span> <span class="n">x</span> <span class="n">in</span> <span class="err">@</span><span class="n">a</span> <span class="n">a</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">param</span> <span class="n">compare</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">)</span> <span class="n">returns</span> <span class="kc">true</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">q</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">pre</span> <span class="err">@</span><span class="n">a</span> <span class="n">a</span> <span class="n">has</span> <span class="n">length</span> <span class="n">equal</span> <span class="n">to</span> <span class="err">@</span><span class="n">a</span> <span class="n">n</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">pre</span> <span class="err">@</span><span class="n">a</span> <span class="n">a</span> <span class="n">is</span> <span class="n">sorted</span> <span class="n">by</span> <span class="err">@</span><span class="n">a</span> <span class="n">compare</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">not</span> <span class="n">found</span>
+</span><span class='line'> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">CMP</span><span class="o">&gt;</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">binary_search2</span><span class="p">(</span><span class="n">T</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">T</span> <span class="n">x</span><span class="p">,</span> <span class="n">CMP</span> <span class="n">compare</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// fix overflow issues</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">compare</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">m</span><span class="p">],</span><span class="n">x</span><span class="p">))</span>
+</span><span class='line'>  <span class="n">l</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'><span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">compare</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="n">m</span><span class="p">]))</span>
+</span><span class='line'>  <span class="n">r</span> <span class="o">=</span> <span class="n">m</span><span class="p">;</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">l</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">return</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+Now, in order to call binary search, we must provide a function object <code>compare</code>
+that defines how we compare two elements of type <code>T</code>. Below is an example of how
+we would invoke this version of binary search:
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Calling Binary Search, Attempt #2 - search.cpp </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="k">struct</span> <span class="n">IntComp</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">return</span> <span class="n">x</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">y</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>  <span class="p">}</span>
+</span><span class='line'><span class="p">};</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">};</span>
+</span><span class='line'>  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">binary_search2</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">IntComp</span><span class="p">())</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+We overload <code>operator()</code> to allow IntComp objects to be invoked like functions,
+and we pass an instance of <code>IntComp</code> to <code>binary_search2</code> whenever we perform
+a binary search on an array of ints.</p>
+
+<p>Note one other difference between the two versions of binary search: in
+attempt #1, we had the line:
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+whereas in attempt #2, we replaced this line with:
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+For all these years, I've been writing binary search incorrectly! In the first
+version, we may run into integer overflow if <code>lo + hi</code> happen to be greater
+than the maximum integer value for <code>int</code>! In the second version, we fix this
+subtle bug by first subtracting <code>r</code> and <code>l</code>, then halving the difference and
+add the result to <code>l</code> to calculate the new middle index <code>m</code>. By subtracting
+first, we are guaranteed that <code>r - l</code> will not overflow (by the implicit
+precondition that <code>r</code> and <code>l</code> are valid indices into the array and <code>r &gt; l</code>),
+and thus <code>m</code> will also be a valid index into the array.</p>
+
+<p>We have generalized our binary search to work on an array containing any type.
+But, we have actually done more than this. In C++, iterators overload pointer
+syntax to represent collections of items. Using iterators, we can represent
+an entire range of items in a collection with only two iterators--one pointing
+to the beginning of the collection, and one pointing to the "position" after
+the last element in the collection. In our example, however, we represent
+the array collection with a pointer to the first position and the number
+of items in the list. Because binary search requires random access into our
+collection, <em>any collection represented by a random access iterator</em> will be
+able to use the second version of our binary search!</p>
+
+<p>Can we still do better? In our specification for binary search, note that we
+allowed the index of <em>any</em> occurrence of our search item <code>x</code> to be returned.
+This ambiguity makes it difficult to make any real use of the return value of
+binary search  (except simply to check whether the item is in the collection).
+Instead of returning any index, what if we returned a <em>lower bound</em> position
+of the element <code>x</code> in our collection? By lower bound, we mean the first index
+into the array at which we should insert <code>x</code> and still keep the elements
+in sorted order.</p>
+
+<p>For example, with the array <code>{0, 1, 2, 5, 5, 5, 7, 9}</code>, the
+lower bound of <code>0</code> would be <code>0</code>, because we can insert <code>0</code> into index <code>0</code> and
+still keep our array sorted. The lower bound of <code>-1</code> is also <code>0</code> by a similar
+reasoning. The lower bound of <code>5</code> is <code>3</code> because <code>3</code> is the smallest index that
+we can insert <code>5</code> and keep the array sorted. Similarly, the lower bound of <code>6</code>
+is <code>6</code>. Note that the lower bound of <code>10</code> is <code>8</code>, which is not a valid index
+into the array. This is okay because the return value only indicates the index
+that one <em>could</em> insert an item and maintain the sorted property of the array.</p>
+
+<p>To implement this, we can think of the array as a collection of boolean values
+where the entries are <code>false, false, ..., false, true, true, ... true</code> (all
+the falses occur together at the beginning of the array). The boolean values
+correspond to whether our target element <code>x</code> is less than or equal to the
+value in that array position. Our goal, then, is to find the first <code>true</code> in
+the array, or return the last position (indicating that placing <code>x</code> at the
+end of the array would maintain the sorted property of our array). Building
+on the polymorphism we introduced in attempt #2, here is attempt #3 using
+the lower bound idea:
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Binary Search, Attempt #3 - search.cpp </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="n">Return</span> <span class="n">the</span> <span class="n">lower</span><span class="o">-</span><span class="n">bound</span> <span class="n">position</span> <span class="n">of</span> <span class="err">@</span><span class="n">a</span> <span class="n">x</span> <span class="n">in</span> <span class="err">@</span><span class="n">a</span> <span class="n">a</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">param</span> <span class="n">compare</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">)</span> <span class="n">returns</span> <span class="kc">true</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">q</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">pre</span> <span class="err">@</span><span class="n">a</span> <span class="n">a</span> <span class="n">has</span> <span class="n">length</span> <span class="n">equal</span> <span class="n">to</span> <span class="err">@</span><span class="n">a</span> <span class="n">n</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">pre</span> <span class="err">@</span><span class="n">a</span> <span class="n">a</span> <span class="n">is</span> <span class="n">sorted</span> <span class="n">by</span> <span class="err">@</span><span class="n">a</span> <span class="n">compare</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">post</span> <span class="k">return</span> <span class="n">R</span> <span class="n">where</span> <span class="mi">0</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="n">R</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="err">@</span><span class="n">a</span> <span class="n">n</span> <span class="nl">and:</span>
+</span><span class='line'> <span class="o">*</span>   <span class="n">For</span> <span class="n">all</span> <span class="mi">0</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">n</span><span class="p">,</span>
+</span><span class='line'> <span class="o">*</span>      <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">R</span> <span class="n">iff</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">x</span>
+</span><span class='line'> <span class="o">*</span>      <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">R</span> <span class="n">iff</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">x</span>
+</span><span class='line'> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">CMP</span><span class="o">&gt;</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">lower_bound</span><span class="p">(</span><span class="n">T</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">T</span> <span class="n">x</span><span class="p">,</span> <span class="n">CMP</span> <span class="n">compare</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">compare</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">m</span><span class="p">],</span><span class="n">x</span><span class="p">))</span>
+</span><span class='line'>  <span class="n">l</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="n">r</span> <span class="o">=</span> <span class="n">m</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">l</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+Note that this version uses only <em>one</em> comparison instead of two (as we did
+in attempts #1 and #2)! This lower bound idea not only tells us whether our
+element <code>x</code> is the array, but where we should place it to keep the list sorted!</p>
+
+<p>This code looks simple enough to verify the correctness by eyeballing it; but
+can we make this rigorous? Can we <em>prove</em> the correctness of this code? Yes!
+Here is the same piece of code but commented heavily with the proof of its
+own correctness.
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Binary Search Lower Bound Proof - search.cpp </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="n">Return</span> <span class="n">the</span> <span class="n">lower</span><span class="o">-</span><span class="n">bound</span> <span class="n">position</span> <span class="n">of</span> <span class="err">@</span><span class="n">a</span> <span class="n">x</span> <span class="n">in</span> <span class="err">@</span><span class="n">a</span> <span class="n">a</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">param</span> <span class="n">compare</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">)</span> <span class="n">returns</span> <span class="kc">true</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">q</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">pre</span> <span class="err">@</span><span class="n">a</span> <span class="n">a</span> <span class="n">has</span> <span class="n">length</span> <span class="n">equal</span> <span class="n">to</span> <span class="err">@</span><span class="n">a</span> <span class="n">n</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">pre</span> <span class="err">@</span><span class="n">a</span> <span class="n">a</span> <span class="n">is</span> <span class="n">sorted</span> <span class="n">by</span> <span class="err">@</span><span class="n">a</span> <span class="n">compare</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">post</span> <span class="k">return</span> <span class="n">R</span> <span class="n">where</span> <span class="mi">0</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="n">R</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="err">@</span><span class="n">a</span> <span class="n">n</span> <span class="nl">and:</span>
+</span><span class='line'> <span class="o">*</span>   <span class="n">For</span> <span class="n">all</span> <span class="mi">0</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">n</span><span class="p">,</span>
+</span><span class='line'> <span class="o">*</span>      <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">R</span> <span class="n">iff</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">x</span>
+</span><span class='line'> <span class="o">*</span>      <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">R</span> <span class="n">iff</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">x</span>
+</span><span class='line'> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">CMP</span><span class="o">&gt;</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">lower_bound_proof</span><span class="p">(</span><span class="n">T</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">T</span> <span class="n">x</span><span class="p">,</span> <span class="n">CMP</span> <span class="n">compare</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">// pre: for all i,j with 0 &amp;lt;= i &amp;lt;= j &amp;lt; n, we have a[i] &amp;lt;= a[j]</span>
+</span><span class='line'>  <span class="c1">// post: let R be the return value. Then 0 &amp;lt;= R &amp;lt;= n, and</span>
+</span><span class='line'>  <span class="c1">//   for all 0 &amp;lt;= i &amp;lt; n,</span>
+</span><span class='line'>  <span class="c1">//     i &amp;lt; R iff a[i] &amp;lt; x    (1)</span>
+</span><span class='line'>  <span class="c1">//     i &gt;= R iff a[i] &gt;= x  (2)&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>  <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="c1">// PRE LOOP</span>
+</span><span class='line'><span class="c1">// loop invariant: l &amp;lt;= R &amp;lt;= r (always true in the loop)</span>
+</span><span class='line'><span class="c1">// decrementing function: d = r - l</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// if r - l &amp;gt;= 2, then (r - l)/2 &amp;gt;= 1,</span>
+</span><span class='line'>                         <span class="c1">//                so l &amp;lt; m &amp;lt; r</span>
+</span><span class='line'>                         <span class="c1">// if r - l == 1, then l = m &amp;lt; r, </span>
+</span><span class='line'>                         <span class="c1">//                so l &amp;lt;= m &amp;lt; r</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">compare</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">m</span><span class="p">],</span><span class="n">x</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">// we have a[m] &amp;lt; x. Then by (1), a[m] &amp;lt; x ==&amp;gt; m &amp;lt; R</span>
+</span><span class='line'>  <span class="c1">// then for all 0 &amp;lt;= i &amp;lt;= m, a[i] &amp;lt; x (b/c sorted)</span>
+</span><span class='line'>  <span class="n">l</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// so l &amp;lt; l_new == m + 1 &amp;lt;= R</span>
+</span><span class='line'>             <span class="c1">// r_new == r &amp;gt;= R</span>
+</span><span class='line'>             <span class="c1">// so l_new &amp;lt;= R &amp;lt;= r_new</span>
+</span><span class='line'>             <span class="c1">// and r_new - l_new &amp;lt; r - l (d decrements)</span>
+</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">// we have a[m] &amp;gt;= x. Then by (2), a[m] &amp;gt;= x ==&amp;gt; m &amp;gt;= R</span>
+</span><span class='line'>  <span class="c1">// then for all m &amp;lt;= i &amp;lt; n, a[i] &amp;gt;= x (b/c sorted)</span>
+</span><span class='line'>  <span class="n">r</span> <span class="o">=</span> <span class="n">m</span><span class="p">;</span> <span class="c1">// so r &amp;gt; r_new == m &amp;gt;= R</span>
+</span><span class='line'>         <span class="c1">// l_new == l &amp;lt;= R</span>
+</span><span class='line'>         <span class="c1">// so l_new &amp;lt;= R &amp;lt;= r_new</span>
+</span><span class='line'>         <span class="c1">// and r_new - l_new &amp;lt; r - l (d decrements)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// POST LOOP</span>
+</span><span class='line'><span class="c1">// loop invariant: l_new &amp;lt;= R &amp;lt;= r_new</span>
+</span><span class='line'><span class="c1">// decrementing function: r_new - l_new &amp;lt; r - l</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>  <span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>  <span class="c1">// by the decrementing function, d eventually reaches 0;</span>
+</span><span class='line'>  <span class="c1">//      thus the loop terminates</span>
+</span><span class='line'>  <span class="c1">// by the loop invariant, we have l &amp;lt;= R &amp;lt;= r</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">l</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+To prove the correctness, we make heavy use of the post condition:
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;*</span>
+</span><span class='line'> <span class="o">*</span> <span class="err">@</span><span class="n">post</span> <span class="k">return</span> <span class="n">R</span> <span class="n">where</span> <span class="mi">0</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="n">R</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="err">@</span><span class="n">a</span> <span class="n">n</span> <span class="nl">and:</span>
+</span><span class='line'> <span class="o">*</span>   <span class="n">For</span> <span class="n">all</span> <span class="mi">0</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">n</span><span class="p">,</span>
+</span><span class='line'> <span class="o">*</span>      <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">R</span> <span class="n">iff</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">x</span>
+</span><span class='line'> <span class="o">*</span>      <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">R</span> <span class="n">iff</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">x</span>
+</span><span class='line'> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+Thus, all elements at indices less than the return value <code>R</code> are less
+than <code>x</code>, and all other elements are greater than or equal to <code>x</code>. We use this
+both of these if and only if conditions in the two branches of the <code>if</code>
+conditional to guide us on how we should update <code>l</code> or <code>r</code>.</p>
+
+<p>In both of the branches of the conditional, we have that the new values of
+<code>l</code> and <code>r</code> are maintained so that <code>l &lt;= R &lt;= r</code> and still satisfy the
+post condition of the function. Thus, the statement <code>l &lt;= R &lt;= r</code> is a
+<strong>loop invariant</strong> of the <code>while</code> loop: it is always true on entering and
+leaving the loop. To ensure that the loop terminates, we require a
+<strong>decrementing function</strong>, a function that decreases on each iteration of
+the loop and is equal to zero when the loop terminates. In this case, the
+obvious choice for the decreming function would be <code>d = r - l</code>. We show
+in both branches that the new values of <code>l</code> and <code>r</code> are such that
+<code>r_new - l_new &lt; r - l</code>, and so <code>d</code> decreases on each iteration. When
+<code>d = 0</code>, we have that <code>l = r</code>, which is indeed when the loop terminates. Thus,
+our final line <code>return l;</code> is proven correct by the combination of our
+post conditions, pre conditions (array is sorted), loop invariant, and
+decrementing function. By analyzing the invariants in the code, the code almost
+writes itself! Cool!</p>
+
+<p>To view the code in its entirety (along with a couple of simple test harnesses
+for each version of binary search), check out the source
+<a href="/downloads/code/search.cpp">here</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

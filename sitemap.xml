@@ -13,8 +13,12 @@
         <lastmod>2012-05-17T00:07:36-04:00</lastmod>
     </url>
     <url>
+        <loc>http://kennyyu.github.com/blog/2012/05/18/binary-search/</loc>
+        <lastmod>2012-05-17T17:27:48-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://kennyyu.github.com/blog/archives/</loc>
-        <lastmod>2012-05-17T00:07:36-04:00</lastmod>
+        <lastmod>2012-05-17T17:27:48-04:00</lastmod>
     </url>
     <url>
         <loc>http://kennyyu.github.com/cs50-section-2011/</loc>
@@ -22,6 +26,6 @@
     </url>
     <url>
         <loc>http://kennyyu.github.com/</loc>
-        <lastmod>2012-05-17T00:07:36-04:00</lastmod>
+        <lastmod>2012-05-17T17:27:48-04:00</lastmod>
     </url>
 </urlset>

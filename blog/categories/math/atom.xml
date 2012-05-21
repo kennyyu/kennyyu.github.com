@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: math | kennary island]]></title>
+  <link href="http://kennyyu.github.com/blog/categories/math/atom.xml" rel="self"/>
+  <link href="http://kennyyu.github.com/"/>
+  <updated>2012-05-21T02:18:55-04:00</updated>
+  <id>http://kennyyu.github.com/</id>
+  <author>
+    <name><![CDATA[Kenny Yu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[LaTeX!]]></title>
+    <link href="http://kennyyu.github.com/blog/2012/05/21/latex/"/>
+    <updated>2012-05-21T02:04:00-04:00</updated>
+    <id>http://kennyyu.github.com/blog/2012/05/21/latex</id>
+    <content type="html"><![CDATA[<p>I installed LaTeX integration with Octopress using the handy hints from
+<a href="http://luikore.github.com/2011/09/good-things-learned-from-octopress/">here</a>.
+Now I can write pretty in-line equations like $e^{i\pi} + 1 = 0$ or
+centered equations like
+$$\int_{\Omega} \, d\omega = \int_{\partial \Omega} \, \omega.$$
+Nice! Hopefully this will motivate me to write more math-related entries!</p>
+]]></content>
+  </entry>
+  
+</feed>

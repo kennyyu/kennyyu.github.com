@@ -9,9 +9,9 @@
   <meta name="author" content="Kenny Yu">
 
   
-  <meta name="description" content="This past semester, I took a graduate course,
-CS 207 - Systems Development
-in Computational Science. In the course, we talked about good software &hellip;">
+  <meta name="description" content="I installed LaTeX integration with Octopress using the handy hints from
+here.
+Now I can write pretty in-line equations like $e^{i\pi} + 1 = 0$ or &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -31,6 +31,21 @@ in Computational Science. In the course, we talked about good software &hellip;"
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 
   
   <script type="text/javascript">
@@ -80,6 +95,49 @@ in Computational Science. In the course, we talked about good software &hellip;"
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/21/latex/">LaTeX!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-21T02:04:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2012</time>
+        
+         | <a href="/blog/2012/05/21/latex/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I installed LaTeX integration with Octopress using the handy hints from
+<a href="http://luikore.github.com/2011/09/good-things-learned-from-octopress/">here</a>.
+Now I can write pretty in-line equations like $e^{i\pi} + 1 = 0$ or
+centered equations like
+$$\int_{\Omega} \, d\omega = \int_{\partial \Omega} \, \omega.$$
+Nice! Hopefully this will motivate me to write more math-related entries!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -673,6 +731,10 @@ for each version of binary search), check out the source
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/latex/">LaTeX!</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/05/18/binary-search/">A Twist on Binary Search</a>

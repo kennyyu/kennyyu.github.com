@@ -1,0 +1,15 @@
+---
+layout: post
+title: "LaTeX!"
+date: 2012-05-21 02:04
+comments: true
+categories: [math]
+author: Kenny Yu
+---
+
+I installed LaTeX integration with Octopress using the handy hints from 
+[here](http://luikore.github.com/2011/09/good-things-learned-from-octopress/).
+Now I can write pretty in-line equations like $e^{i\pi} + 1 = 0$ or
+centered equations like
+$$\int_{\Omega} \, d\omega = \int_{\partial \Omega} \, \omega.$$
+Nice! Hopefully this will motivate me to write more math-related entries!

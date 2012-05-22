@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | kennary island]]></title>
   <link href="http://kennyyu.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://kennyyu.github.com/"/>
-  <updated>2012-05-22T15:18:03-04:00</updated>
+  <updated>2012-05-22T15:21:35-04:00</updated>
   <id>http://kennyyu.github.com/</id>
   <author>
     <name><![CDATA[Kenny Yu]]></name>
@@ -14,11 +14,34 @@
 
   
   <entry>
+    <title type="html"><![CDATA[LaTeX!]]></title>
+    <link href="http://kennyyu.github.com/blog/2012/05/21/latex/"/>
+    <updated>2012-05-21T02:04:00-04:00</updated>
+    <id>http://kennyyu.github.com/blog/2012/05/21/latex</id>
+    <content type="html"><![CDATA[<p>I installed $\LaTeX$ integration with Octopress using the handy hints from
+<a href="http://luikore.github.com/2011/09/good-things-learned-from-octopress/">here</a>.
+Now I can write pretty in-line equations like $e^{i\pi} + 1 = 0$ or
+centered equations like
+$$\int_{\Omega} \, d\omega = \int_{\partial \Omega} \, \omega.$$
+Nice! Hopefully this will motivate me to write more math-related entries!</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[New Layout!]]></title>
     <link href="http://kennyyu.github.com/blog/2012/05/17/new-layout/"/>
     <updated>2012-05-17T00:03:00-04:00</updated>
     <id>http://kennyyu.github.com/blog/2012/05/17/new-layout</id>
     <content type="html"><![CDATA[<p>I got a new octopress layout using Melandri's layout <a href="http://melandri.net/2012/02/14/octopress-theme-customization/">here</a>. I also discovered how to make cool striped backgrounds with <a href="http://www.stripegenerator.com/">StripeGenerator</a>, use cool new fonts from <a href="http://www.theleagueofmoveabletype.com/">The League of Movable Type</a>, and use cool pre-made icons with <a href="http://www.doublejdesign.co.uk/">Double-J Design</a>. Hopefully the layout will encourage me to actually keep up with my tech blog!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[First Post!]]></title>
+    <link href="http://kennyyu.github.com/blog/2012/01/14/first-post/"/>
+    <updated>2012-01-14T13:06:00-05:00</updated>
+    <id>http://kennyyu.github.com/blog/2012/01/14/first-post</id>
+    <content type="html"><![CDATA[<p>This will be my tech blog where I post my thoughts (and hopefully some code) about computer science, math, and whatever the likes. I'm using <a href="http://octopress.org/" title="Octopress">Octopress</a> for blog generation, and I'm hosting it on my Github page. Nice and simple. Yessss.</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | kennary island]]></title>
   <link href="http://kennyyu.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://kennyyu.github.com/"/>
-  <updated>2012-05-22T15:46:52-04:00</updated>
+  <updated>2012-05-22T15:50:49-04:00</updated>
   <id>http://kennyyu.github.com/</id>
   <author>
     <name><![CDATA[Kenny Yu]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Tag Cloud and Background Noise]]></title>
+    <link href="http://kennyyu.github.com/blog/2012/05/22/tag-cloud-and-background-noise/"/>
+    <updated>2012-05-22T15:48:00-04:00</updated>
+    <id>http://kennyyu.github.com/blog/2012/05/22/tag-cloud-and-background-noise</id>
+    <content type="html"><![CDATA[<p>I just installed a plugin to generate tag clouds (see the right sidebar) using
+this plugin <a href="https://github.com/tokkonopapa/octopress-tagcloud">here</a>. I also
+finally discovered how to make background images that are just noises using
+this background generator <a href="http://bgpatterns.com/">here</a>. I like the simplicity
+of these backgrounds!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LaTeX!]]></title>

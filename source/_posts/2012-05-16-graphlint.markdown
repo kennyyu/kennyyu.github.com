@@ -3,7 +3,7 @@ layout: post
 title: "GraphLint: Creating a Domain Specific Language for Graph Validation"
 date: 2012-05-16 00:23
 comments: true
-categories: [Knewton, compilers]
+categories: [knewton, compilers, java]
 author: Kenny Yu
 ---
 

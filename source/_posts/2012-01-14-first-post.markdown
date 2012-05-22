@@ -3,7 +3,7 @@ layout: post
 title: First Post!
 date: 2012-01-14 13:06
 comments: true
-categories: 
+categories: octopress
 author: Kenny Yu
 ---
 

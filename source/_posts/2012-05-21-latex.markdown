@@ -3,7 +3,7 @@ layout: post
 title: "LaTeX!"
 date: 2012-05-21 02:04
 comments: true
-categories: [math]
+categories: [math, octopress]
 author: Kenny Yu
 ---
 

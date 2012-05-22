@@ -3,7 +3,7 @@ layout: post
 title: "A Twist on Binary Search"
 date: 2012-05-18 12:00
 comments: true
-categories: [binary search, c++]
+categories: [binary search, c++, math, proofs]
 author: Kenny Yu
 ---
 

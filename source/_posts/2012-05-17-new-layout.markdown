@@ -3,7 +3,7 @@ layout: post
 title: "New Layout!"
 date: 2012-05-17 00:03
 comments: true
-categories: [layout, octopress]
+categories: [layout, octopress, design]
 author: Kenny Yu
 ---
 

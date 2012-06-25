@@ -79,7 +79,7 @@ $$E(X) = E(X_1) + E(X_2) + E(X_3) + \cdots + E(X_n)$$
 $$E(X) = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n}.$$
 
 This is the harmonic series! The harmonic series diverges to infinity and
-grows approximately as $n (\log n + \gamma)$ where $\gamma \approx 0.57722$ is
+grows approximately as $n \log(n + \gamma)$ where $\gamma \approx 0.57722$ is
 Euler's constant.
 
 ## Solution to the Random-to-Top Shuffling Problem

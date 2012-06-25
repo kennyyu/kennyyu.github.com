@@ -4,7 +4,7 @@ title: "Coupling and the Coupon Collector"
 date: 2012-06-24 21:43
 author: Kenny Yu
 comments: true
-categories: math, statistics, probability, markov chains
+categories: [math, statistics, probability, markov chains, coupling]
 ---
 
 In the fall semester last year, I took [Stat 110](http://blog.bokcenter.harvard.edu/2012/01/23/stat-110-lectures-are-now-available-on-itunesu/),

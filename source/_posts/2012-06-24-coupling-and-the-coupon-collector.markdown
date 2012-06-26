@@ -89,21 +89,13 @@ Euler's constant.
 Coming back to the random-to-top shuffling problem, we first need to define
 our notion of "random" for our deck. In order to do this, we use Markov chains.
 
-We can treat the shuffling process as a random walk on an undirected graph.
 For our Markov chain, let our states be all $n!$ permutations of $n$-card deck,
 and two states are adjacent if and only if it is possible to reach one of the
 states from the other through one step of this shuffle. For any state, we move to
 one of its $n-1$ neighbors with probability $\frac{1}{n}$, or stay at the same
-state with probability $\frac{1}{n}$. We use the following lemma to find
-the stationary distribution of this Markov chain.
-
-**Lemma.** *Let $G$ be a connected undirected graph. Let
-$\vec{d} = (d_1, d_2, ... d_n)$ be the sequence of degrees where
-$d_i$ is the degree of node $i$. Then the stationary
-distribution $\vec{s}$ is proportional to $\vec{d}$.*
-
-Since all of our $n!$ states has degree $n$ (including loops), and our underlying
-graph is undirected and connected, then the stationary distribution for our
+state with probability $\frac{1}{n}$. Since all of our $n!$ states has degree
+$n$ (including loops), then by symmetry, the probability of having any
+permutation is equally likely. Thus, the stationary distribution for our
 random-to-top shuffling Markov process is the uniform vector
 $$\vec{s} = \left(\frac{1}{n!}, ..., \frac{1}{n!}\right).$$
 

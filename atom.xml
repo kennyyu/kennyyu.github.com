@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[kennary island]]></title>
-  <link href="http://kennyyu.github.com/atom.xml" rel="self"/>
-  <link href="http://kennyyu.github.com/"/>
-  <updated>2012-06-25T22:38:38-04:00</updated>
-  <id>http://kennyyu.github.com/</id>
+  <link href="http://kennyyu.me/atom.xml" rel="self"/>
+  <link href="http://kennyyu.me/"/>
+  <updated>2012-06-29T19:03:51-04:00</updated>
+  <id>http://kennyyu.me/</id>
   <author>
     <name><![CDATA[Kenny Yu]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Coupling and the Coupon Collector]]></title>
-    <link href="http://kennyyu.github.com/blog/2012/06/24/coupling-and-the-coupon-collector/"/>
+    <link href="http://kennyyu.me/blog/2012/06/24/coupling-and-the-coupon-collector/"/>
     <updated>2012-06-24T21:43:00-04:00</updated>
-    <id>http://kennyyu.github.com/blog/2012/06/24/coupling-and-the-coupon-collector</id>
+    <id>http://kennyyu.me/blog/2012/06/24/coupling-and-the-coupon-collector</id>
     <content type="html"><![CDATA[<p>In the fall semester last year, I took <a href="http://blog.bokcenter.harvard.edu/2012/01/23/stat-110-lectures-are-now-available-on-itunesu/">Stat 110</a>,
 an introductory
 statistics course focusing on probability. I had done probability in contest
@@ -168,9 +168,9 @@ to randomize our deck.</p>
   
   <entry>
     <title type="html"><![CDATA[Tag Cloud and Background Noise]]></title>
-    <link href="http://kennyyu.github.com/blog/2012/05/22/tag-cloud-and-background-noise/"/>
+    <link href="http://kennyyu.me/blog/2012/05/22/tag-cloud-and-background-noise/"/>
     <updated>2012-05-22T15:48:00-04:00</updated>
-    <id>http://kennyyu.github.com/blog/2012/05/22/tag-cloud-and-background-noise</id>
+    <id>http://kennyyu.me/blog/2012/05/22/tag-cloud-and-background-noise</id>
     <content type="html"><![CDATA[<p>I just installed a plugin to generate tag clouds (see the right sidebar) using
 this plugin <a href="https://github.com/tokkonopapa/octopress-tagcloud">here</a>. I also
 finally discovered how to make background images that are just noises using
@@ -181,9 +181,9 @@ of these backgrounds!</p>
   
   <entry>
     <title type="html"><![CDATA[LaTeX!]]></title>
-    <link href="http://kennyyu.github.com/blog/2012/05/21/latex/"/>
+    <link href="http://kennyyu.me/blog/2012/05/21/latex/"/>
     <updated>2012-05-21T02:04:00-04:00</updated>
-    <id>http://kennyyu.github.com/blog/2012/05/21/latex</id>
+    <id>http://kennyyu.me/blog/2012/05/21/latex</id>
     <content type="html"><![CDATA[<p>I installed $\LaTeX$ integration with Octopress using the handy hints from
 <a href="http://luikore.github.com/2011/09/good-things-learned-from-octopress/">here</a>.
 Now I can write pretty in-line equations like $e^{i\pi} + 1 = 0$ or
@@ -195,9 +195,9 @@ Nice! Hopefully this will motivate me to write more math-related entries!</p>
   
   <entry>
     <title type="html"><![CDATA[A Twist on Binary Search]]></title>
-    <link href="http://kennyyu.github.com/blog/2012/05/18/binary-search/"/>
+    <link href="http://kennyyu.me/blog/2012/05/18/binary-search/"/>
     <updated>2012-05-18T12:00:00-04:00</updated>
-    <id>http://kennyyu.github.com/blog/2012/05/18/binary-search</id>
+    <id>http://kennyyu.me/blog/2012/05/18/binary-search</id>
     <content type="html"><![CDATA[<p>This past semester, I took a graduate course,
 <a href="http://iacs.seas.harvard.edu/courses/cs207/">CS 207</a> - Systems Development
 in Computational Science. In the course, we talked about good software
@@ -627,33 +627,33 @@ writes itself! Cool!</p>
 
 <p>To view the code in its entirety (along with a couple of simple test harnesses
 for each version of binary search), check out the source
-<a href="http://kennyyu.github.com/downloads/code/search.cpp">here</a>.</p>
+<a href="http://kennyyu.me/downloads/code/search.cpp">here</a>.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[New Layout!]]></title>
-    <link href="http://kennyyu.github.com/blog/2012/05/17/new-layout/"/>
+    <link href="http://kennyyu.me/blog/2012/05/17/new-layout/"/>
     <updated>2012-05-17T00:03:00-04:00</updated>
-    <id>http://kennyyu.github.com/blog/2012/05/17/new-layout</id>
+    <id>http://kennyyu.me/blog/2012/05/17/new-layout</id>
     <content type="html"><![CDATA[<p>I got a new octopress layout using Melandri&#8217;s layout <a href="http://melandri.net/2012/02/14/octopress-theme-customization/">here</a>. I also discovered how to make cool striped backgrounds with <a href="http://www.stripegenerator.com/">StripeGenerator</a>, use cool new fonts from <a href="http://www.theleagueofmoveabletype.com/">The League of Movable Type</a>, and use cool pre-made icons with <a href="http://www.doublejdesign.co.uk/">Double-J Design</a>. Hopefully the layout will encourage me to actually keep up with my tech blog!</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[GraphLint: Creating a Domain Specific Language for Graph Validation]]></title>
-    <link href="http://kennyyu.github.com/blog/2012/05/16/graphlint/"/>
+    <link href="http://kennyyu.me/blog/2012/05/16/graphlint/"/>
     <updated>2012-05-16T00:23:00-04:00</updated>
-    <id>http://kennyyu.github.com/blog/2012/05/16/graphlint</id>
+    <id>http://kennyyu.me/blog/2012/05/16/graphlint</id>
     <content type="html"><![CDATA[<p>This is a bit late, but I had written a blog post for the project I worked on during my winter internship at Knewton. My article was published on their tech blog <a href="http://www.knewton.com/tech/blog/2012/02/graphlint-creating-a-domain-specific-language-for-graph-validation/" title="GraphLint">here</a>. I created a domain specific language to verify certain predicates on directed property graphs (e.g. all nodes of type A are connected to exactly 2 nodes of type B via edges of type E). This was a great exercise in the material I learned from the compilers course I took in the fall. Designing the language, the validation engine, and engineering the whole project was an awesome experience!</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[First Post!]]></title>
-    <link href="http://kennyyu.github.com/blog/2012/01/14/first-post/"/>
+    <link href="http://kennyyu.me/blog/2012/01/14/first-post/"/>
     <updated>2012-01-14T13:06:00-05:00</updated>
-    <id>http://kennyyu.github.com/blog/2012/01/14/first-post</id>
+    <id>http://kennyyu.me/blog/2012/01/14/first-post</id>
     <content type="html"><![CDATA[<p>This will be my tech blog where I post my thoughts (and hopefully some code) about computer science, math, and whatever the likes. I&#8217;m using <a href="http://octopress.org/" title="Octopress">Octopress</a> for blog generation, and I&#8217;m hosting it on my Github page. Nice and simple. Yessss.</p>
 ]]></content>
   </entry>

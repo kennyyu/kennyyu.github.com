@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: knewton | kennary island]]></title>
-  <link href="http://kennyyu.github.com/blog/categories/knewton/atom.xml" rel="self"/>
-  <link href="http://kennyyu.github.com/"/>
-  <updated>2012-06-25T22:38:38-04:00</updated>
-  <id>http://kennyyu.github.com/</id>
+  <link href="http://kennyyu.me/blog/categories/knewton/atom.xml" rel="self"/>
+  <link href="http://kennyyu.me/"/>
+  <updated>2012-06-29T19:03:51-04:00</updated>
+  <id>http://kennyyu.me/</id>
   <author>
     <name><![CDATA[Kenny Yu]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[GraphLint: Creating a Domain Specific Language for Graph Validation]]></title>
-    <link href="http://kennyyu.github.com/blog/2012/05/16/graphlint/"/>
+    <link href="http://kennyyu.me/blog/2012/05/16/graphlint/"/>
     <updated>2012-05-16T00:23:00-04:00</updated>
-    <id>http://kennyyu.github.com/blog/2012/05/16/graphlint</id>
+    <id>http://kennyyu.me/blog/2012/05/16/graphlint</id>
     <content type="html"><![CDATA[<p>This is a bit late, but I had written a blog post for the project I worked on during my winter internship at Knewton. My article was published on their tech blog <a href="http://www.knewton.com/tech/blog/2012/02/graphlint-creating-a-domain-specific-language-for-graph-validation/" title="GraphLint">here</a>. I created a domain specific language to verify certain predicates on directed property graphs (e.g. all nodes of type A are connected to exactly 2 nodes of type B via edges of type E). This was a great exercise in the material I learned from the compilers course I took in the fall. Designing the language, the validation engine, and engineering the whole project was an awesome experience!</p>
 ]]></content>
   </entry>

@@ -1,43 +1,43 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://kennyyu.github.com/blog/2012/01/14/first-post/</loc>
+        <loc>http://kennyyu.me/blog/2012/01/14/first-post/</loc>
         <lastmod>2012-05-22T15:18:51-04:00</lastmod>
     </url>
     <url>
-        <loc>http://kennyyu.github.com/blog/2012/05/16/graphlint/</loc>
+        <loc>http://kennyyu.me/blog/2012/05/16/graphlint/</loc>
         <lastmod>2012-05-22T15:19:07-04:00</lastmod>
     </url>
     <url>
-        <loc>http://kennyyu.github.com/blog/2012/05/17/new-layout/</loc>
+        <loc>http://kennyyu.me/blog/2012/05/17/new-layout/</loc>
         <lastmod>2012-05-22T15:19:16-04:00</lastmod>
     </url>
     <url>
-        <loc>http://kennyyu.github.com/blog/2012/05/18/binary-search/</loc>
+        <loc>http://kennyyu.me/blog/2012/05/18/binary-search/</loc>
         <lastmod>2012-05-22T15:19:23-04:00</lastmod>
     </url>
     <url>
-        <loc>http://kennyyu.github.com/blog/2012/05/21/latex/</loc>
+        <loc>http://kennyyu.me/blog/2012/05/21/latex/</loc>
         <lastmod>2012-05-22T15:19:30-04:00</lastmod>
     </url>
     <url>
-        <loc>http://kennyyu.github.com/blog/2012/05/22/tag-cloud-and-background-noise/</loc>
+        <loc>http://kennyyu.me/blog/2012/05/22/tag-cloud-and-background-noise/</loc>
         <lastmod>2012-05-22T15:50:32-04:00</lastmod>
     </url>
     <url>
-        <loc>http://kennyyu.github.com/blog/2012/06/24/coupling-and-the-coupon-collector/</loc>
+        <loc>http://kennyyu.me/blog/2012/06/24/coupling-and-the-coupon-collector/</loc>
         <lastmod>2012-06-25T22:38:18-04:00</lastmod>
     </url>
     <url>
-        <loc>http://kennyyu.github.com/blog/archives/</loc>
+        <loc>http://kennyyu.me/blog/archives/</loc>
         <lastmod>2012-06-25T22:38:18-04:00</lastmod>
     </url>
     <url>
-        <loc>http://kennyyu.github.com/cs50-section-2011/</loc>
+        <loc>http://kennyyu.me/cs50-section-2011/</loc>
         <lastmod>2012-05-21T02:13:24-04:00</lastmod>
     </url>
     <url>
-        <loc>http://kennyyu.github.com/</loc>
+        <loc>http://kennyyu.me/</loc>
         <lastmod>2012-06-25T22:38:18-04:00</lastmod>
     </url>
 </urlset>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: math | kennary island]]></title>
-  <link href="http://kennyyu.github.com/blog/categories/math/atom.xml" rel="self"/>
-  <link href="http://kennyyu.github.com/"/>
-  <updated>2012-06-25T22:38:38-04:00</updated>
-  <id>http://kennyyu.github.com/</id>
+  <link href="http://kennyyu.me/blog/categories/math/atom.xml" rel="self"/>
+  <link href="http://kennyyu.me/"/>
+  <updated>2012-06-29T19:03:51-04:00</updated>
+  <id>http://kennyyu.me/</id>
   <author>
     <name><![CDATA[Kenny Yu]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Coupling and the Coupon Collector]]></title>
-    <link href="http://kennyyu.github.com/blog/2012/06/24/coupling-and-the-coupon-collector/"/>
+    <link href="http://kennyyu.me/blog/2012/06/24/coupling-and-the-coupon-collector/"/>
     <updated>2012-06-24T21:43:00-04:00</updated>
-    <id>http://kennyyu.github.com/blog/2012/06/24/coupling-and-the-coupon-collector</id>
+    <id>http://kennyyu.me/blog/2012/06/24/coupling-and-the-coupon-collector</id>
     <content type="html"><![CDATA[<p>In the fall semester last year, I took <a href="http://blog.bokcenter.harvard.edu/2012/01/23/stat-110-lectures-are-now-available-on-itunesu/">Stat 110</a>,
 an introductory
 statistics course focusing on probability. I had done probability in contest
@@ -168,9 +168,9 @@ to randomize our deck.</p>
   
   <entry>
     <title type="html"><![CDATA[LaTeX!]]></title>
-    <link href="http://kennyyu.github.com/blog/2012/05/21/latex/"/>
+    <link href="http://kennyyu.me/blog/2012/05/21/latex/"/>
     <updated>2012-05-21T02:04:00-04:00</updated>
-    <id>http://kennyyu.github.com/blog/2012/05/21/latex</id>
+    <id>http://kennyyu.me/blog/2012/05/21/latex</id>
     <content type="html"><![CDATA[<p>I installed $\LaTeX$ integration with Octopress using the handy hints from
 <a href="http://luikore.github.com/2011/09/good-things-learned-from-octopress/">here</a>.
 Now I can write pretty in-line equations like $e^{i\pi} + 1 = 0$ or
@@ -182,9 +182,9 @@ Nice! Hopefully this will motivate me to write more math-related entries!</p>
   
   <entry>
     <title type="html"><![CDATA[A Twist on Binary Search]]></title>
-    <link href="http://kennyyu.github.com/blog/2012/05/18/binary-search/"/>
+    <link href="http://kennyyu.me/blog/2012/05/18/binary-search/"/>
     <updated>2012-05-18T12:00:00-04:00</updated>
-    <id>http://kennyyu.github.com/blog/2012/05/18/binary-search</id>
+    <id>http://kennyyu.me/blog/2012/05/18/binary-search</id>
     <content type="html"><![CDATA[<p>This past semester, I took a graduate course,
 <a href="http://iacs.seas.harvard.edu/courses/cs207/">CS 207</a> - Systems Development
 in Computational Science. In the course, we talked about good software

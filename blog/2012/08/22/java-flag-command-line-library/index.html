@@ -5,13 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>LaTeX! - kennary island</title>
+  <title>Java Flag Command Line Library - kennary island</title>
   <meta name="author" content="Kenny Yu">
 
   
-  <meta name="description" content="I installed $\LaTeX$ integration with Octopress using the handy hints from
-here.
-Now I can write pretty in-line equations like $e^{i\pi} + 1 = 0$ or &hellip;">
+  <meta name="description" content="Inspired by other commmand line libraries, I decided to make my own Java flag
+command line library here. It makes use
+of Java&#8217;s Reflection &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +20,7 @@ Now I can write pretty in-line equations like $e^{i\pi} + 1 = 0$ or &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kennyyu.me/blog/2012/05/21/latex">
+  <link rel="canonical" href="http://kennyyu.me/blog/2012/08/22/java-flag-command-line-library">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -98,7 +98,7 @@ MathJax.Hub.Config({
   
   <header>
     
-      <h1 class="entry-title">LaTeX!</h1>
+      <h1 class="entry-title">Java Flag Command Line Library</h1>
     
     
       <p class="meta">
@@ -114,7 +114,7 @@ MathJax.Hub.Config({
   
 
 
-<time datetime="2012-05-21T02:04:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2012</time>
+<time datetime="2012-08-22T18:07:00-04:00" pubdate data-updated="true">Aug 22<span>nd</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -123,12 +123,21 @@ MathJax.Hub.Config({
   </header>
 
 
-<div class="entry-content"><p>I installed $\LaTeX$ integration with Octopress using the handy hints from
-<a href="http://luikore.github.com/2011/09/good-things-learned-from-octopress/">here</a>.
-Now I can write pretty in-line equations like $e^{i\pi} + 1 = 0$ or
-centered equations like
-$$\int_{\Omega} \, d\omega = \int_{\partial \Omega} \, \omega.$$
-Nice! Hopefully this will motivate me to write more math-related entries!</p>
+<div class="entry-content"><p>Inspired by other commmand line libraries, I decided to make my own Java flag
+command line library <a href="https://github.com/kennyyu/flags">here</a>. It makes use
+of Java&#8217;s Reflection capabilities to fill in the values of flags at runtime.
+The library is fairly simple to use&#8211;it requires only declaring a static
+field, and one invocation to <code>Flags.parse</code> in the <code>main</code> method of the
+application. The library offers support for various wrapper types as well
+as collection types.</p>
+
+<p>In addition to learning how to use Java&#8217;s Reflection capabilities, this
+was also an exercise in learning how to use Maven to build and deploy my
+project. I am using a <a href="https://github.com/kennyyu/maven-repos">github project</a>
+as a maven server.</p>
+
+<p>See the <code>README.md</code> in the github directory for more information on how to
+use it and install the library.</p>
 </div>
 
 
@@ -151,12 +160,12 @@ Nice! Hopefully this will motivate me to write more math-related entries!</p>
   
 
 
-<time datetime="2012-05-21T02:04:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2012</time>
+<time datetime="2012-08-22T18:07:00-04:00" pubdate data-updated="true">Aug 22<span>nd</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/math/'>math</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>
+    <a class='category' href='/blog/categories/flags/'>flags</a>, <a class='category' href='/blog/categories/java/'>java</a>
   
 </span>
 
@@ -165,7 +174,7 @@ Nice! Hopefully this will motivate me to write more math-related entries!</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kennyyu.me/blog/2012/05/21/latex/" data-via="" data-counturl="http://kennyyu.me/blog/2012/05/21/latex/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kennyyu.me/blog/2012/08/22/java-flag-command-line-library/" data-via="" data-counturl="http://kennyyu.me/blog/2012/08/22/java-flag-command-line-library/" >Tweet</a>
   
   
   
@@ -176,10 +185,8 @@ Nice! Hopefully this will motivate me to write more math-related entries!</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/05/18/binary-search/" title="Previous Post: A Twist on Binary Search">&laquo; A Twist on Binary Search</a>
+        <a class="basic-alignment left" href="/blog/2012/06/24/coupling-and-the-coupon-collector/" title="Previous Post: Coupling and the Coupon Collector">&laquo; Coupling and the Coupon Collector</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/05/22/tag-cloud-and-background-noise/" title="next Post: Tag Cloud and Background Noise">Tag Cloud and Background Noise &raquo;</a>
       
     </p>
   </footer>
@@ -200,15 +207,11 @@ Nice! Hopefully this will motivate me to write more math-related entries!</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/22/java-flag-command-line-library/">Java Flag Command Line Library</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/24/coupling-and-the-coupon-collector/">Coupling and the Coupon Collector</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/22/tag-cloud-and-background-noise/">Tag Cloud and Background Noise</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/21/latex/">LaTeX!</a>
       </li>
     
       <li class="post">
@@ -216,7 +219,11 @@ Nice! Hopefully this will motivate me to write more math-related entries!</p>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/05/17/new-layout/">New Layout!</a>
+        <a href="/blog/2012/05/17/new-layout/">New Layout, LaTeX, and Tag Clouds!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/16/graphlint/">GraphLint: Creating a Domain Specific Language for Graph Validation</a>
       </li>
     
   </ul>
@@ -227,7 +234,7 @@ Nice! Hopefully this will motivate me to write more math-related entries!</p>
 
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/binary-search' style='font-size: 115.0%'>binary search</a> <a href='/blog/categories/c-' style='font-size: 115.0%'>c++</a> <a href='/blog/categories/compilers' style='font-size: 115.0%'>compilers</a> <a href='/blog/categories/coupling' style='font-size: 115.0%'>coupling</a> <a href='/blog/categories/design' style='font-size: 130.0%'>design</a> <a href='/blog/categories/java' style='font-size: 115.0%'>java</a> <a href='/blog/categories/knewton' style='font-size: 115.0%'>knewton</a> <a href='/blog/categories/layout' style='font-size: 115.0%'>layout</a> <a href='/blog/categories/markov-chains' style='font-size: 115.0%'>markov chains</a> <a href='/blog/categories/math' style='font-size: 145.0%'>math</a> <a href='/blog/categories/octopress' style='font-size: 160.0%'>octopress</a> <a href='/blog/categories/probability' style='font-size: 115.0%'>probability</a> <a href='/blog/categories/proofs' style='font-size: 115.0%'>proofs</a> <a href='/blog/categories/statistics' style='font-size: 115.0%'>statistics</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/binary-search' style='font-size: 120.0%'>binary search</a> <a href='/blog/categories/c-' style='font-size: 120.0%'>c++</a> <a href='/blog/categories/compilers' style='font-size: 120.0%'>compilers</a> <a href='/blog/categories/coupling' style='font-size: 120.0%'>coupling</a> <a href='/blog/categories/design' style='font-size: 120.0%'>design</a> <a href='/blog/categories/flags' style='font-size: 120.0%'>flags</a> <a href='/blog/categories/java' style='font-size: 140.0%'>java</a> <a href='/blog/categories/knewton' style='font-size: 120.0%'>knewton</a> <a href='/blog/categories/layout' style='font-size: 120.0%'>layout</a> <a href='/blog/categories/markov-chains' style='font-size: 120.0%'>markov chains</a> <a href='/blog/categories/math' style='font-size: 160.0%'>math</a> <a href='/blog/categories/octopress' style='font-size: 140.0%'>octopress</a> <a href='/blog/categories/probability' style='font-size: 120.0%'>probability</a> <a href='/blog/categories/proofs' style='font-size: 120.0%'>proofs</a> <a href='/blog/categories/statistics' style='font-size: 120.0%'>statistics</a> </span>
 </section>
 
 <section>
@@ -279,8 +286,8 @@ Nice! Hopefully this will motivate me to write more math-related entries!</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://kennyyu.me/blog/2012/05/21/latex/';
-        var disqus_url = 'http://kennyyu.me/blog/2012/05/21/latex/';
+        var disqus_identifier = 'http://kennyyu.me/blog/2012/08/22/java-flag-command-line-library/';
+        var disqus_url = 'http://kennyyu.me/blog/2012/08/22/java-flag-command-line-library/';
         var disqus_script = 'embed.js';
       
     (function () {

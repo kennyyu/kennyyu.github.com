@@ -10,27 +10,23 @@
     </url>
     <url>
         <loc>http://kennyyu.me/blog/2012/05/17/new-layout/</loc>
-        <lastmod>2012-05-22T15:19:16-04:00</lastmod>
+        <lastmod>2012-08-22T18:20:18-04:00</lastmod>
     </url>
     <url>
         <loc>http://kennyyu.me/blog/2012/05/18/binary-search/</loc>
         <lastmod>2012-05-22T15:19:23-04:00</lastmod>
     </url>
     <url>
-        <loc>http://kennyyu.me/blog/2012/05/21/latex/</loc>
-        <lastmod>2012-05-22T15:19:30-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://kennyyu.me/blog/2012/05/22/tag-cloud-and-background-noise/</loc>
-        <lastmod>2012-05-22T15:50:32-04:00</lastmod>
-    </url>
-    <url>
         <loc>http://kennyyu.me/blog/2012/06/24/coupling-and-the-coupon-collector/</loc>
         <lastmod>2012-06-25T22:38:18-04:00</lastmod>
     </url>
     <url>
+        <loc>http://kennyyu.me/blog/2012/08/22/java-flag-command-line-library/</loc>
+        <lastmod>2012-08-22T18:15:12-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://kennyyu.me/blog/archives/</loc>
-        <lastmod>2012-06-25T22:38:18-04:00</lastmod>
+        <lastmod>2012-08-22T18:20:18-04:00</lastmod>
     </url>
     <url>
         <loc>http://kennyyu.me/cs50-section-2011/</loc>
@@ -38,6 +34,6 @@
     </url>
     <url>
         <loc>http://kennyyu.me/</loc>
-        <lastmod>2012-06-25T22:38:18-04:00</lastmod>
+        <lastmod>2012-08-22T18:20:18-04:00</lastmod>
     </url>
 </urlset>

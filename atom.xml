@@ -4,7 +4,7 @@
   <title><![CDATA[kennary island]]></title>
   <link href="http://kennyyu.me/atom.xml" rel="self"/>
   <link href="http://kennyyu.me/"/>
-  <updated>2012-06-29T19:03:51-04:00</updated>
+  <updated>2012-08-22T18:20:55-04:00</updated>
   <id>http://kennyyu.me/</id>
   <author>
     <name><![CDATA[Kenny Yu]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Java Flag Command Line Library]]></title>
+    <link href="http://kennyyu.me/blog/2012/08/22/java-flag-command-line-library/"/>
+    <updated>2012-08-22T18:07:00-04:00</updated>
+    <id>http://kennyyu.me/blog/2012/08/22/java-flag-command-line-library</id>
+    <content type="html"><![CDATA[<p>Inspired by other commmand line libraries, I decided to make my own Java flag
+command line library <a href="https://github.com/kennyyu/flags">here</a>. It makes use
+of Java&#8217;s Reflection capabilities to fill in the values of flags at runtime.
+The library is fairly simple to use&#8211;it requires only declaring a static
+field, and one invocation to <code>Flags.parse</code> in the <code>main</code> method of the
+application. The library offers support for various wrapper types as well
+as collection types.</p>
+
+<p>In addition to learning how to use Java&#8217;s Reflection capabilities, this
+was also an exercise in learning how to use Maven to build and deploy my
+project. I am using a <a href="https://github.com/kennyyu/maven-repos">github project</a>
+as a maven server.</p>
+
+<p>See the <code>README.md</code> in the github directory for more information on how to
+use it and install the library.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Coupling and the Coupon Collector]]></title>
@@ -163,33 +186,6 @@ after approximately $n \log(n + \gamma)$
 random-to-top shuffles, our original deck $A$
 will be a &#8220;random&#8221; deck. For $n = 52$, we require $E(T) \approx 236$ shuffles
 to randomize our deck.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Tag Cloud and Background Noise]]></title>
-    <link href="http://kennyyu.me/blog/2012/05/22/tag-cloud-and-background-noise/"/>
-    <updated>2012-05-22T15:48:00-04:00</updated>
-    <id>http://kennyyu.me/blog/2012/05/22/tag-cloud-and-background-noise</id>
-    <content type="html"><![CDATA[<p>I just installed a plugin to generate tag clouds (see the right sidebar) using
-this plugin <a href="https://github.com/tokkonopapa/octopress-tagcloud">here</a>. I also
-finally discovered how to make background images that are just noises using
-this background generator <a href="http://bgpatterns.com/">here</a>. I like the simplicity
-of these backgrounds!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[LaTeX!]]></title>
-    <link href="http://kennyyu.me/blog/2012/05/21/latex/"/>
-    <updated>2012-05-21T02:04:00-04:00</updated>
-    <id>http://kennyyu.me/blog/2012/05/21/latex</id>
-    <content type="html"><![CDATA[<p>I installed $\LaTeX$ integration with Octopress using the handy hints from
-<a href="http://luikore.github.com/2011/09/good-things-learned-from-octopress/">here</a>.
-Now I can write pretty in-line equations like $e^{i\pi} + 1 = 0$ or
-centered equations like
-$$\int_{\Omega} \, d\omega = \int_{\partial \Omega} \, \omega.$$
-Nice! Hopefully this will motivate me to write more math-related entries!</p>
 ]]></content>
   </entry>
   
@@ -632,11 +628,32 @@ for each version of binary search), check out the source
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[New Layout!]]></title>
+    <title type="html"><![CDATA[New Layout, LaTeX, and Tag Clouds!]]></title>
     <link href="http://kennyyu.me/blog/2012/05/17/new-layout/"/>
     <updated>2012-05-17T00:03:00-04:00</updated>
     <id>http://kennyyu.me/blog/2012/05/17/new-layout</id>
-    <content type="html"><![CDATA[<p>I got a new octopress layout using Melandri&#8217;s layout <a href="http://melandri.net/2012/02/14/octopress-theme-customization/">here</a>. I also discovered how to make cool striped backgrounds with <a href="http://www.stripegenerator.com/">StripeGenerator</a>, use cool new fonts from <a href="http://www.theleagueofmoveabletype.com/">The League of Movable Type</a>, and use cool pre-made icons with <a href="http://www.doublejdesign.co.uk/">Double-J Design</a>. Hopefully the layout will encourage me to actually keep up with my tech blog!</p>
+    <content type="html"><![CDATA[<p>I got a new octopress layout using Melandri&#8217;s layout
+<a href="http://melandri.net/2012/02/14/octopress-theme-customization/">here</a>.
+I also discovered how to make cool striped backgrounds with
+<a href="http://www.stripegenerator.com/">StripeGenerator</a>, use cool new fonts
+from <a href="http://www.theleagueofmoveabletype.com/">The League of Movable Type</a>,
+and use cool pre-made icons with
+<a href="http://www.doublejdesign.co.uk/">Double-J Design</a>. Hopefully the layout
+will encourage me to actually keep up with my tech blog!</p>
+
+<p>I also installed $\LaTeX$ integration with Octopress using the handy hints from
+<a href="http://luikore.github.com/2011/09/good-things-learned-from-octopress/">here</a>.
+Now I can write pretty in-line equations like $e^{i\pi} + 1 = 0$ or
+centered equations like
+$$\int_{\Omega} \, d\omega = \int_{\partial \Omega} \, \omega.$$
+Nice! Hopefully this will motivate me to write more math-related entries!</p>
+
+<p>To keep track of tags, I installed a plugin to generate tag clouds
+(see the right sidebar) using this plugin
+<a href="https://github.com/tokkonopapa/octopress-tagcloud">here</a>. I also
+finally discovered how to make background images that are just noises using
+this background generator <a href="http://bgpatterns.com/">here</a>. I like the simplicity
+of these backgrounds!</p>
 ]]></content>
   </entry>
   

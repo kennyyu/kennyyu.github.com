@@ -9,9 +9,9 @@
   <meta name="author" content="Kenny Yu">
 
   
-  <meta name="description" content="Inspired by other commmand line libraries, I decided to make my own Java flag
-command line library here. It makes use
-of Java&#8217;s Reflection &hellip;">
+  <meta name="description" content="This semester, I&#8217;ve been writing and leading bootcamps as the
+Harvard Computer Society Bootcamp Manager. In the past, HCS has
+had bootcamps on &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -95,6 +95,190 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/18/bootcamps/">Learning Through Bootcamps</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-18T11:25:00-05:00" pubdate data-updated="true">Nov 18<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/11/18/bootcamps/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This semester, I&#8217;ve been writing and leading <a href="https://github.com/hcs/bootcamp-main/">bootcamps</a> as the
+<a href="http://www.hcs.harvard.edu/">Harvard Computer Society</a> Bootcamp Manager. In the past, HCS has
+had bootcamps on various topics including python, javascript, and git. Bootcamps are typically
+targetted for students just starting computer science (fresh{wo}men, sophomores).</p>
+
+<p>My goal this smester was to restart the bootcamps and to revamp the curriculum. In this post, I&#8217;ll talk about:</p>
+
+<ol>
+<li>The <strong>bootcamp curriculum</strong> I designed</li>
+<li>The typical <strong>workflow</strong> for a bootcamp</li>
+<li>The <strong>design decisions</strong> that went into writing these bootcamps</li>
+<li>Some high level <strong>results</strong> (pull request numbers and summary of testimonials)</li>
+<li><strong>Unedited testimonials</strong> from students in the bootcamps</li>
+</ol>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/11/18/bootcamps/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/10/20/omnibox-gdrive-search/">Omnibox GDrive Search</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-20T22:11:00-04:00" pubdate data-updated="true">Oct 20<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/10/20/omnibox-gdrive-search/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/omnibox-gdrive-search.png" alt="Omnibox GDrive Search" /></p>
+
+<p>I published my first Chrome Extension: <a href="https://chrome.google.com/webstore/detail/omnibox-gdrive-search/faadbnlolclhboooficaklnhnkdjmdnb">Omnibox GDrive Search</a>!
+The extension allows you to search your google drive for documents and then jump directly to them from the omnibox! See the <a href="https://github.com/kennyyu/omnibox-gdrive-search">code on github</a>.</p>
+
+<p>In the omnibox, type <code>gd</code> and press <code>TAB</code>. Now you can enter your queries and jump directly to the file from the omnibox suggestions!</p>
+
+<p>To use it, you must first authorize Google Drive metadata read-only access to the extension by following these instructions (see screenshots in extension link):</p>
+
+<ol>
+<li>Go to <code>chrome://extensions</code></li>
+<li>Find this extension, and click &#8220;Options&#8221;</li>
+<li>Click &#8220;Authorize&#8221;, and then click &#8220;Accept&#8221; to grant the extension access. This will redirect to a blank page. Close it, and refresh the options page.</li>
+<li>If you see &#8220;You have already authorized this extension!&#8221;, then you can now search!</li>
+</ol>
+
+
+<p>By far, the most difficult part of the extension was understanding authorization with Google Drive. The extension is a bit
+buggy and lags a little because the extension must renew the authorization with Google Drive every 15 minutes or so.
+To get around this, the extension only requests authorization on the first use after the expiration and will
+redirect the user to the options page.
+Thus, if you&#8217;re using the extension for the first time in a while, it may take ~3 seconds before search results come back.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/10/pipeline-for-improving-hand-tracking-accuracy/">Pipeline for Improving Hand Tracking Accuracy</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-10T21:48:00-05:00" pubdate data-updated="true">Dec 10<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/12/10/pipeline-for-improving-hand-tracking-accuracy/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/DFPg-9D46kE "></iframe></div>
+
+
+<p>For my CS283: Computer Vision Final Project, I created an application to control Google Maps
+using your hand and a webcam.</p>
+
+<p>It uses the Chrome API to access the webcam, and frames are sent to a Tornado server that
+runs the hand tracking pipeline, annotates the frame, and sends back the displacement
+vector to update the view of the map. I am using OpenCV for it&#8217;s Haar Cascade libraries.</p>
+
+<p>You can <a href="https://github.com/kennyyu/cs283-project">view the code on github</a>
+and setup an instance of the server locally!</p>
+
+<p>You can also <a href="https://www.dropbox.com/s/tnyzr1qt8fmnscp/hand-tracking-pipeline.pdf">view the paper</a>
+I wrote to describe the process I used in the pipeline. Below is a summary of the problem
+statement and the stages in the pipeline.</p>
+
+<h1>Problem Statement</h1>
+
+<p>Given a poorly trained Haar Cascade Classifier (250 positive samples and 100 negative samples) to recognize hands,
+this project assembles a pipeline to improve the quality of the tracking. These steps include:</p>
+
+<ol>
+<li>Face detection and removal of faces.</li>
+<li>Background subtraction.</li>
+<li>Use a simplified Kalman-Filter-esque technique to estimate the bounding box of the hand. This assumes that a hand moves in a smooth manner.</li>
+<li>Use our hand classifier to detect the largest hand within the bounding box.</li>
+<li>Compute the optical flow of points within the bounding box using Lucas-Kanade.</li>
+<li>Use the optical flow and the measured position of the hand to correct our Kalman-Filter estimate.</li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -945,23 +1129,23 @@ of these backgrounds!</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/11/18/bootcamps/">Learning Through Bootcamps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/20/omnibox-gdrive-search/">Omnibox GDrive Search</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/10/pipeline-for-improving-hand-tracking-accuracy/">Pipeline for Improving Hand Tracking Accuracy</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/22/java-flag-command-line-library/">Java Flag Command Line Library</a>
       </li>
     
       <li class="post">
         <a href="/blog/2012/06/24/coupling-and-the-coupon-collector/">Coupling and the Coupon Collector</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/18/binary-search/">A Twist on Binary Search</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/17/new-layout/">New Layout, LaTeX, and Tag Clouds!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/16/graphlint/">GraphLint: Creating a Domain Specific Language for Graph Validation</a>
       </li>
     
   </ul>
@@ -972,7 +1156,7 @@ of these backgrounds!</p>
 
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/binary-search' style='font-size: 120.0%'>binary search</a> <a href='/blog/categories/c-' style='font-size: 120.0%'>c++</a> <a href='/blog/categories/compilers' style='font-size: 120.0%'>compilers</a> <a href='/blog/categories/coupling' style='font-size: 120.0%'>coupling</a> <a href='/blog/categories/design' style='font-size: 120.0%'>design</a> <a href='/blog/categories/flags' style='font-size: 120.0%'>flags</a> <a href='/blog/categories/java' style='font-size: 140.0%'>java</a> <a href='/blog/categories/knewton' style='font-size: 120.0%'>knewton</a> <a href='/blog/categories/layout' style='font-size: 120.0%'>layout</a> <a href='/blog/categories/markov-chains' style='font-size: 120.0%'>markov chains</a> <a href='/blog/categories/math' style='font-size: 160.0%'>math</a> <a href='/blog/categories/octopress' style='font-size: 140.0%'>octopress</a> <a href='/blog/categories/probability' style='font-size: 120.0%'>probability</a> <a href='/blog/categories/proofs' style='font-size: 120.0%'>proofs</a> <a href='/blog/categories/statistics' style='font-size: 120.0%'>statistics</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/binary-search' style='font-size: 120.0%'>binary search</a> <a href='/blog/categories/c-' style='font-size: 120.0%'>c++</a> <a href='/blog/categories/chrome-extension' style='font-size: 120.0%'>chrome extension</a> <a href='/blog/categories/compilers' style='font-size: 120.0%'>compilers</a> <a href='/blog/categories/computer-vision' style='font-size: 120.0%'>computer vision</a> <a href='/blog/categories/coupling' style='font-size: 120.0%'>coupling</a> <a href='/blog/categories/design' style='font-size: 120.0%'>design</a> <a href='/blog/categories/flags' style='font-size: 120.0%'>flags</a> <a href='/blog/categories/git' style='font-size: 120.0%'>git</a> <a href='/blog/categories/java' style='font-size: 140.0%'>java</a> <a href='/blog/categories/javascript' style='font-size: 140.0%'>javascript</a> <a href='/blog/categories/knewton' style='font-size: 120.0%'>knewton</a> <a href='/blog/categories/layout' style='font-size: 120.0%'>layout</a> <a href='/blog/categories/markov-chains' style='font-size: 120.0%'>markov chains</a> <a href='/blog/categories/math' style='font-size: 160.0%'>math</a> <a href='/blog/categories/octopress' style='font-size: 140.0%'>octopress</a> <a href='/blog/categories/opencv' style='font-size: 120.0%'>opencv</a> <a href='/blog/categories/probability' style='font-size: 120.0%'>probability</a> <a href='/blog/categories/proofs' style='font-size: 120.0%'>proofs</a> <a href='/blog/categories/python' style='font-size: 140.0%'>python</a> <a href='/blog/categories/statistics' style='font-size: 120.0%'>statistics</a> <a href='/blog/categories/teaching' style='font-size: 120.0%'>teaching</a> <a href='/blog/categories/unix' style='font-size: 120.0%'>unix</a> </span>
 </section>
 
 <section>
@@ -1011,7 +1195,7 @@ of these backgrounds!</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Kenny Yu -
+  Copyright &copy; 2013 - Kenny Yu -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

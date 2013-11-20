@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: teaching | kennary island]]></title>
+  <link href="http://kennyyu.me/blog/categories/teaching/atom.xml" rel="self"/>
+  <link href="http://kennyyu.me/"/>
+  <updated>2013-11-19T22:36:28-05:00</updated>
+  <id>http://kennyyu.me/</id>
+  <author>
+    <name><![CDATA[Kenny Yu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Through Bootcamps]]></title>
+    <link href="http://kennyyu.me/blog/2013/11/18/bootcamps/"/>
+    <updated>2013-11-18T11:25:00-05:00</updated>
+    <id>http://kennyyu.me/blog/2013/11/18/bootcamps</id>
+    <content type="html"><![CDATA[<p>This semester, I've been writing and leading <a href="https://github.com/hcs/bootcamp-main/">bootcamps</a> as the
+<a href="http://www.hcs.harvard.edu/">Harvard Computer Society</a> Bootcamp Manager. In the past, HCS has
+had bootcamps on various topics including python, javascript, and git. Bootcamps are typically
+targetted for students just starting computer science (fresh{wo}men, sophomores).</p>
+
+<p>My goal this smester was to restart the bootcamps and to revamp the curriculum. In this post, I'll talk about:</p>
+
+<ol>
+<li>The <strong>bootcamp curriculum</strong> I designed</li>
+<li>The typical <strong>workflow</strong> for a bootcamp</li>
+<li>The <strong>design decisions</strong> that went into writing these bootcamps</li>
+<li>Some high level <strong>results</strong> (pull request numbers and summary of testimonials)</li>
+<li><strong>Unedited testimonials</strong> from students in the bootcamps</li>
+</ol>
+
+
+<!-- more -->
+
+
+<h2>Bootcamp Curriculum</h2>
+
+<ol>
+<li><p><a href="https://github.com/hcs/bootcamp-setup/wiki">Bootcamp Setup</a> and <a href="http://goo.gl/jk45W1">slides</a>.
+From my experience leading bootcamps
+last semester, I realized it is really hard to cater to so many different programming
+backgrounds and machine setups. As a result, I chose to standardize and require students
+to install a UNIX system with a package manager:</p>
+
+<ul>
+<li>OSX with <a href="http://brew.sh/">homebrew</a></li>
+<li><a href="https://manual.cs50.net/appliance/">CS50 Appliance</a>, since most students are either taking
+or have taken <a href="https://cs50.harvard.edu/">CS50</a>, Harvard's Intro to Computer Science course.</li>
+<li>Ubuntu virtual machine with VirtualBox or VMWare</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/hcs/bootcamp-unix/wiki">Intro to UNIX Part 1: Command Line</a> and <a href="http://goo.gl/5NJyWw">slides</a>.
+This bootcamp presents the UNIX command line and the stdin, stdout, stderr, and pipe abstractions.
+<a href="https://github.com/hcs/bootcamp-unix/wiki/Exercise:-Scavenger-hunt">Exercises</a>
+include scavenger hunts through a code base using <code>find</code>, <code>grep</code>, and piping
+a sequence of commands together transform and analyze files.</p></li>
+<li><p><a href="https://github.com/hcs/bootcamp-unix/wiki/Shell-scripts">Intro to UNIX Part 2: Shell Scripting</a> and <a href="http://goo.gl/kRpD4y">slides</a>.
+This continues the introduction to UNIX with shell scripts. Exercises include:</p>
+
+<ul>
+<li>Writing a <a href="https://github.com/hcs/bootcamp-unix/wiki/Exercise:-Shell-scripts">web scraper to scrape images from Amazon</a>
+using only basic UNIX commands, and writing</li>
+<li>A <a href="https://github.com/hcs/bootcamp-unix/wiki/Exercise:-Mail-Merge-Shell-Script">mail merge script</a>.</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/hcs/bootcamp-git/wiki">Git and Github</a> and <a href="http://goo.gl/siE4CQ">slides</a>.
+This bootcamp introduces students to version control and using git with Github. Exercises include</p>
+
+<ul>
+<li><a href="https://github.com/hcs/bootcamp-git/wiki/Exercise-Scavenger-Hunt">Scavenger Hunt</a>
+through a repository's history (e.g. which commit introduced a change, who did it, checking out an old revision)</li>
+<li><a href="https://github.com/hcs/bootcamp-git/wiki/Exercise-Committing-and-Pushing">Committing and Pushing</a>. Have students
+attempt to replicate a git history tree.</li>
+<li><a href="https://github.com/hcs/bootcamp-git/wiki/Exercise-Resolving-Merge-Conflicts">Resolving Merge Conflicts</a>.
+I made a branch that would purposely cause a merge conflict when students attempt to merge the branch
+into their master branch.</li>
+<li><a href="https://github.com/hcs/bootcamp-git/wiki/Exercise-Reverting-a-commit">Reverting a Commit</a>.</li>
+<li><a href="https://github.com/hcs/bootcamp-git/wiki/Exercise-Making-a-Pull-Request">Making a Pull Request</a>. Students
+create a pull request on github. This exercise allows students to make pull requests in the future
+and to give me and the HCS board the opportunity to give them feedback on their work.</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/hcs/bootcamp-python/wiki">Intro to Python</a> and <a href="http://goo.gl/9ID3ad">slides</a>.
+This bootcamp introduces students to basic feature of Python, including control flow and data structures
+(lists, sets, dictionaries, tuples, strings). Exercises include:</p>
+
+<ul>
+<li><a href="https://github.com/hcs/bootcamp-python/wiki/Exercise-Hello-World">Hello World!</a>.
+This also sets up a pull request to keep track of their work.</li>
+<li><a href="https://github.com/hcs/bootcamp-python/wiki/Exercise-Spell-Checker">Spell Checker</a>. Inspired by CS50's
+<a href="http://cdn.cs50.net/2013/fall/psets/6/pset6/pset6.html">Spell Checker</a> problem set, I wanted to
+show students how much Python abstracts many things away and makes programming in Python extremely
+simple and easy.</li>
+<li><a href="https://github.com/hcs/bootcamp-python/wiki/Exercise-Programming">Python Exercises</a>. This is an example
+of test-driven development: we give students failing unit tests, and their job is to make
+all the unit tests pass.</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>Workflow</h2>
+
+<p>I designed the workflow centered around github wiki pages and pull requests. Here's the workflow for a typical bootcamp:</p>
+
+<ol>
+<li>Start reading the github wiki page for the bootcamp repository.</li>
+<li>Fork the bootcamp repository and clone it to their local machines.</li>
+<li>Do some of the exercises.</li>
+<li>Setup a pull request using the original bootcamp respository as the base of the pull request,
+and their master branch as the head of the pull request</li>
+<li>Do some more exercises and push commits to their master branch, which will update their pull request.</li>
+<li>Wait for feedback on the pull request.</li>
+</ol>
+
+
+<h2>Design Goals</h2>
+
+<p>I designed the curriculum and workflow with multiple goals in mind:</p>
+
+<ul>
+<li><p><strong>Flipped Classroom.</strong> From my experience in classes with
+<a href="http://www.eecs.harvard.edu/~margo/cs161/">flipped classrooms</a>,
+students learn (at least with programing exercises) much better when they have hands-on
+exercises with guidance from the instructor. With this in mind, I wrote all the bootcamps
+to minimize the amount of lecturing I give and to maximize the amount of time students
+would be programming and asking questions.</p></li>
+<li><p><strong>Useful Software Engineering Skills.</strong> With these bootcamps, I wanted to provide
+others with the exercises and support that I wish I had had as a freshmen--exercises
+to teach some basic skills that would be useful not only in industry, but also
+useful in an academic setting. From my experiences in internships and classes,
+some of the most useful skills that have learned are</p>
+
+<ol>
+<li>using the command line effectively</li>
+<li>scripting repetitive tasks (e.g. test harnesses, moving/editing files)</li>
+<li>using version control</li>
+<li>having a go-to language for quick prototyping and tasks</li>
+</ol>
+</li>
+<li><p><strong>Start from Zero.</strong> Because HCS's target audience is students with very
+little programming experience, I wrote the bootcamps so that anyone starting
+from zero programming experience could quickly get their environment setup
+and start using the command line. Naturally, there will be students that
+already have programming experience, and I supplemented the basic exercises
+in bootcamps with more involved exercises that students can do on their
+own pace.</p></li>
+<li><p><strong>Feedback System.</strong> I believe it's very important to get feedback
+on your work, especially when programming for the first time. Therefore, I
+designed the bootcamps to use github's pull request feature for comments
+and feedback. Pull requests allow us to leave in-line comments on code,
+and to provide a comment-discussion feature for general feedback. I also
+encouraged students to install the <a href="https://chrome.google.com/webstore/detail/gh-diff-highlight/gjljgldconccfbldbnnpbgahpckhjcfj">GH Diff Highlight Chrome Extension</a>
+to colorize pull request diffs.</p>
+
+<p><a href="https://github.com/hcs/bootcamp-python/pulls">Here</a> are examples of the
+feedback we provided on the Intro to Python bootcamp.</p></li>
+<li><p><strong>Reusable.</strong> I am a senior and will be graduating soon; as a result, I
+want the bootcamps to be reusable after I leave. Because of this,
+I made all the bootcamps open source github repositories
+so that they may be reused, updated, and forked as necessary in the future.</p></li>
+</ul>
+
+
+<h2>Results</h2>
+
+<p>Overall, attendance was generally higher than I expected. The attendance for
+the setup and first two UNIX bootcamps were roughly 30-40 people, which
+is one of the highest attendance rates HCS has had in a while for a bootcamp.
+Naturally, as the semester progresses, students get more busy with midterms and assignments,
+and so attendance dropped to about 20 for git, and a dozen or so for the Python
+bootcamp. After each bootcamp, I posted a survey asking for feedback. I asked
+the question:</p>
+
+<blockquote><p>What did you think of the bootcamp? (What you liked, didn't like, what was useful, wasn't useful. What would you have done differently? etc.)</p></blockquote>
+
+<p>The feedback was generally positive. The types of feedback were generally along one or
+more of these categories (see the Testimonial section at the end for real responses):</p>
+
+<ol>
+<li>Hands-on flipped classroom sessions were helpful in helping students digest the material.</li>
+<li>More advanced students wanted more challenging exercises.</li>
+<li>Too fast/too slow.</li>
+<li>Requests for review of material from previous sessions.</li>
+</ol>
+
+
+<p>In terms of numbers, the <a href="https://github.com/hcs/bootcamp-git/pulls">Git and Github Bootcamp</a> had 28 forks, with 16
+students successfully submitting a pull request. The <a href="https://github.com/hcs/bootcamp-git/pulls">Python Bootcamp</a> had 16 forks,
+with 10 students sucessfully submitting a pull request, and 4 students finishing all the python exercises.</p>
+
+<p>From these numbers and testimonials, it seems that the flipped classroom model worked very well,
+and the various levels of exercises and walkthroughs catered to both advanced and beginner students.</p>
+
+<h2>Testimonials</h2>
+
+<p>Below are the unedited and anonymized testimonials from students:</p>
+
+<h3>UNIX Part 1: Command Line</h3>
+
+<blockquote><p>This seems well done, albeit rather basic. Maybe mentioning "do one thing well" to explain why UNIX works the way it does.</p>
+
+<p>I thought it was good since it taught me all the basics in one sitting</p>
+
+<p>Like it.</p>
+
+<p>I think this was great although taught a little quickly</p>
+
+<p>Useful, but went a little slowly; Overall was run very well, learned some useful UNIX commands.</p>
+
+<p>Very useful! I learned a lot about some of the basic commands available to us. I wish we'd dived into the scavenger hunt sooner so we could've had more time for it and the shell script exercise.</p>
+
+<p>I liked how many functions could be linked to each other. That was really cool. Also how there are functions that allow tons of flexibility with the -char ability.</p>
+
+<p>Very helpful especially one-on-one. Went through the slides a bit too fast</p>
+
+<p>Awesome! While I've done a good amount of programming before, I haven't had a chance to learn many of the covered UNIX commands... until now.</p>
+
+<p>Thanks for an awesome class, Kenny!"</p>
+
+<p>smaller room preferably</p>
+
+<p>Scavenger hunt was fun. I'm glad I sat next to people who were more familiar with this material.</p>
+
+<p>Ir was really useful.  I got a better sense of how to use the command line than ever before!  Thanks.</p>
+
+<p>It got a little hectic at the end...</p>
+
+<p>I thought it went a little too fast for me. But I enjoy the premises of the program. I just wish it was not so much like a class, but a collaboration so that everyone feels involved.</p>
+
+<p>I thought it was a really good topic, but it moved to quickly for me. It also would have been nice if there were more people to answer questions, because that was really helpful. Along with piazza, it would be nice to have a small recap session to go over the topics and solidify them.</p>
+
+<p>This was a good set of exercises.  I got distracted with unrelated things (c/p, sending the answers directly to answers.txt), so I lagged behind.</p>
+
+<p>I liked it! I thought I knew shell scripting before, but now I feel more comfortable with channeling and piping and whatnot. :)</p>
+
+<p>It was very informative!</p>
+
+<p>I've learned a lot. It was very informative.</p>
+
+<p>Great tutorial. Learned a lot about UNIX, especially piping.</p></blockquote>
+
+<h3>UNIX Part 2: Shell Scripting</h3>
+
+<blockquote><p>could have been a little more organized.  But people were very helpful.</p>
+
+<p>Useful bootcamp, I didn't know how to write shell scripts...</p>
+
+<p>I liked having the recap of last week and generally enjoyed this exercise.  I like the presence of a second exercise for those who finish early.</p>
+
+<p>Could've used more instruction on the scraper parts - using man over and over again got annoying</p></blockquote>
+
+<h3>Git and Github</h3>
+
+<blockquote><p>Awesome overview of git. I knew a bit coming in, but setting up the alias for my "lg" command was great, so that I can see my requests in a more aesthetically pleasing fashion. Maybe a bit more on creating branches to make temporary changes and then merging your own branch back.</p>
+
+<p>github is harder than i expected–it's like a whole new world of stuff! so it was largely a struggle but i think i learned a lot</p>
+
+<p>Liked how straightforward it was. I would maybe have thrown in a challenge exercise</p>
+
+<p>It was very fun and easy to understand. Plus, I learned a whole bunch of stuff I never knew before (and a lot of things unrelated to git, but useful as a whole, like how to use vim). :)</p>
+
+<p>It was fantastic! I don't think I would have done anything differently.</p>
+
+<p>Useful, already knew a decent amount about git. The pace was good, wouldn't have changed anything.</p>
+
+<p>It is difficult but manageable</p>
+
+<p>Exercises are nice.</p>
+
+<p>It was great! And useful!</p>
+
+<p>I thought the bootcamp was useful. Github is a lot more manageable and less confusing after today's bootcamp. I'm glad I came.</p>
+
+<p>This one was really good and understandable!</p>
+
+<p>I wasn't able to come to the bootcamp on Wednesday, but I just completed it on my own - the slides and online directions were really helpful, and I could pretty much figure most things out on my own.</p>
+
+<p>On a side note, I also completed the mail merger exercise from last week's bootcamp, and the solution didn't follow the instructions that we were given, so that confused me a little.</p></blockquote>
+
+<h3>Intro to Python</h3>
+
+<blockquote><p>Pretty cool.  Exercises were nice, good practice.  I was already pretty familiar with Python, though, so not representative.</p>
+
+<p>It was useful, especially the talk about CS classes and coursework!</p>
+
+<p>This was a great lesson. The only problems I had were setting up git stuff, but that is mostly due to the fact that this was the first time I came up. There is not much to change other than perhaps moving a bit slower.</p>
+
+<p>It was great! Learnt a lot about python. Especially liked the exercises that helped me get a little more used to python syntax.</p>
+
+<p>I love to code and I love the exercises, as well as the debugger tests that let me see what I was doing wrong and which lines. Python is so applicable. To improve, I think we could get thai(Spice?) for the food next time to add variety.</p>
+
+<p>I liked that it had fewer directed parts and relied more on us learning some of python's capabilities on our own</p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

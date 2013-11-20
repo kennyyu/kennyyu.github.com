@@ -19,6 +19,8 @@ My goal this smester was to restart the bootcamps and to revamp the curriculum. 
 4.  Some high level **results** (pull request numbers and summary of testimonials)
 5.  **Unedited testimonials** from students in the bootcamps
 
+<!-- more -->
+
 ## Bootcamp Curriculum
 
 1.  [Bootcamp Setup](https://github.com/hcs/bootcamp-setup/wiki) and [slides](http://goo.gl/jk45W1).

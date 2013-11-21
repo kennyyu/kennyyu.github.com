@@ -318,6 +318,67 @@ field, and one invocation to <code>Flags.parse</code> in the <code>main</code> m
 application. The library offers support for various wrapper types as well
 as collection types.</p>
 
+<p>As an example of using the library, you declare a flag using the
+annotation <code>@FlagInfo</code> with the desired flag names and values.</p>
+
+<figure class='code'><figcaption><span>MyApp.java</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">me.kennyyu.flags.Flag</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">me.kennyyu.flags.Flags</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApp</span> <span class="o">{</span>
+</span><span class='line'>  <span class="nd">@FlagInfo</span><span class="o">(</span><span class="n">help</span> <span class="o">=</span> <span class="s">&quot;maximum number of threads to use&quot;</span><span class="o">,</span> <span class="n">altName</span> <span class="o">=</span> <span class="s">&quot;n&quot;</span><span class="o">)</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Flag</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">maxNumThreads</span> <span class="o">=</span> <span class="n">Flags</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@FlagInfo</span><span class="o">(</span><span class="n">help</span> <span class="o">=</span> <span class="s">&quot;use real logger&quot;</span><span class="o">,</span> <span class="n">altName</span> <span class="o">=</span> <span class="s">&quot;r&quot;</span><span class="o">)</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Flag</span><span class="o">&lt;</span><span class="n">Boolean</span><span class="o">&gt;</span> <span class="n">useRealLogger</span> <span class="o">=</span> <span class="n">Flags</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@FlagInfo</span><span class="o">(</span><span class="n">help</span> <span class="o">=</span> <span class="s">&quot;input list&quot;</span><span class="o">,</span> <span class="n">altName</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="o">)</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Flag</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">inputList</span> <span class="o">=</span>
+</span><span class='line'>      <span class="n">Flags</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;());</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">Flags</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxNumThreads</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">useRealLogger</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">inputList</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you provide flag values at the command line like so:</p>
+
+<figure class='code'><figcaption><span>Passing flags at the command line</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>java MyApp --maxNumThreads<span class="o">=</span>5 --useRealLogger -l<span class="o">=</span>foo,bar,baz
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>All classes referenced from the main class with flags will be available as options.</p>
+
 <p>In addition to learning how to use Java&#8217;s Reflection capabilities, this
 was also an exercise in learning how to use Maven to build and deploy my
 project. I am using a <a href="https://github.com/kennyyu/maven-repos">github project</a>

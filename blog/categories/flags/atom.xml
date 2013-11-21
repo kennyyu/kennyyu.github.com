@@ -4,7 +4,7 @@
   <title><![CDATA[Category: flags | kennary island]]></title>
   <link href="http://kennyyu.me/blog/categories/flags/atom.xml" rel="self"/>
   <link href="http://kennyyu.me/"/>
-  <updated>2013-11-21T06:25:50-05:00</updated>
+  <updated>2013-11-21T06:42:30-05:00</updated>
   <id>http://kennyyu.me/</id>
   <author>
     <name><![CDATA[Kenny Yu]]></name>
@@ -25,6 +25,48 @@ The library is fairly simple to use--it requires only declaring a static
 field, and one invocation to <code>Flags.parse</code> in the <code>main</code> method of the
 application. The library offers support for various wrapper types as well
 as collection types.</p>
+
+<p>As an example of using the library, you declare a flag using the
+annotation <code>@FlagInfo</code> with the desired flag names and values.</p>
+
+<p>``` java MyApp.java
+import me.kennyyu.flags.Flag;
+import me.kennyyu.flags.Flags;</p>
+
+<p>import java.util.List;</p>
+
+<p>public class MyApp {
+  @FlagInfo(help = "maximum number of threads to use", altName = "n")
+  private static final Flag<Integer> maxNumThreads = Flags.valueOf(3);</p>
+
+<p>  @FlagInfo(help = "use real logger", altName = "r")
+  private static final Flag<Boolean> useRealLogger = Flags.valueOf(false);</p>
+
+<p>  @FlagInfo(help = "input list", altName = "l")
+  private static final Flag&lt;List<String>> inputList =</p>
+
+<pre><code>  Flags.valueOf(new ArrayList&lt;String&gt;());
+</code></pre>
+
+<p>  public static void main(String[] args) {</p>
+
+<pre><code>Flags.parse(args);
+System.out.println(maxNumThreads.get());
+System.out.println(useRealLogger.get());
+System.out.println(inputList.get());
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>Then you provide flag values at the command line like so:</p>
+
+<p><code>sh Passing flags at the command line
+java MyApp --maxNumThreads=5 --useRealLogger -l=foo,bar,baz
+</code></p>
+
+<p>All classes referenced from the main class with flags will be available as options.</p>
 
 <p>In addition to learning how to use Java's Reflection capabilities, this
 was also an exercise in learning how to use Maven to build and deploy my

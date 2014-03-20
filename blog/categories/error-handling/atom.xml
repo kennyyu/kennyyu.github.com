@@ -4,7 +4,7 @@
   <title><![CDATA[Category: error handling | kennary island]]></title>
   <link href="http://kennyyu.me/blog/categories/error-handling/atom.xml" rel="self"/>
   <link href="http://kennyyu.me/"/>
-  <updated>2014-03-19T20:53:47-04:00</updated>
+  <updated>2014-03-19T21:04:38-04:00</updated>
   <id>http://kennyyu.me/</id>
   <author>
     <name><![CDATA[Kenny Yu]]></name>
@@ -36,6 +36,9 @@ struct columnarray *st_open_cols; // array of open columns
 
 <p>};
 ```</p>
+
+<!-- more -->
+
 
 <p>Here's a first pass at initializing a storage struct. In this example,
 I ignore all errors and will throw an assertion error if an error

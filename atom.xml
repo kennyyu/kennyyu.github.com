@@ -4,7 +4,7 @@
   <title><![CDATA[kennary island]]></title>
   <link href="http://kennyyu.me/atom.xml" rel="self"/>
   <link href="http://kennyyu.me/"/>
-  <updated>2014-03-19T20:53:47-04:00</updated>
+  <updated>2014-03-19T21:04:38-04:00</updated>
   <id>http://kennyyu.me/</id>
   <author>
     <name><![CDATA[Kenny Yu]]></name>
@@ -38,6 +38,11 @@ a directory to act as persistent storage for my database.</p>
 </span><span class='line'>    <span class="k">struct</span> <span class="n">columnarray</span> <span class="o">*</span><span class="n">st_open_cols</span><span class="p">;</span> <span class="c1">// array of open columns</span>
 </span><span class='line'><span class="p">};</span>
 </span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- more -->
 
 
 <p>Here&#8217;s a first pass at initializing a storage struct. In this example,

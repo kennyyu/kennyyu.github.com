@@ -4,7 +4,7 @@
   <title><![CDATA[kennary island]]></title>
   <link href="http://kennyyu.me/atom.xml" rel="self"/>
   <link href="http://kennyyu.me/"/>
-  <updated>2014-03-19T21:04:38-04:00</updated>
+  <updated>2014-03-20T00:24:12-04:00</updated>
   <id>http://kennyyu.me/</id>
   <author>
     <name><![CDATA[Kenny Yu]]></name>
@@ -18,8 +18,9 @@
     <link href="http://kennyyu.me/blog/2014/03/19/c-error-handling/"/>
     <updated>2014-03-19T19:42:00-04:00</updated>
     <id>http://kennyyu.me/blog/2014/03/19/c-error-handling</id>
-    <content type="html"><![CDATA[<p>After taking an operating systems class last year and taking a data systems
-class this semester, I&#8217;ve picked up a few C patterns
+    <content type="html"><![CDATA[<p>After taking an <a href="http://www.eecs.harvard.edu/~margo/cs161/">operating systems class</a>
+last year and taking a
+<a href="http://stratos.seas.harvard.edu/classes/cs165-data-systems">data systems class</a> this semester, I&#8217;ve picked up a few patterns
 to make it easier to handle error conditions in C.</p>
 
 <p>Consider the following example from my data systems class, where I initialize
@@ -310,7 +311,7 @@ the quadratic code growth in error handling! Furthermore,
 there is only one exit point of this function (at the very
 bottom), and reasoning about exit points for this version
 is much easier than the previous version, especially
-when we throw in concurrencry primitivies and needing to remember
+when we throw in concurrencry primitives and needing to remember
 to release locks.</p>
 
 <p>To eliminate the boiler plate of checking the return value

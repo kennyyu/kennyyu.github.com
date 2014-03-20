@@ -22,6 +22,8 @@ struct storage {
 };
 ```
 
+<!-- more -->
+
 Here's a first pass at initializing a storage struct. In this example,
 I ignore all errors and will throw an assertion error if an error
 occurs.

@@ -9,10 +9,9 @@
   <meta name="author" content="Kenny Yu">
 
   
-  <meta name="description" content="After taking an operating systems class
-last year and taking a
-data systems class this semester, I&#8217;ve picked up a few patterns
-to make it &hellip;">
+  <meta name="description" content="This semester, I have the privilege of being a teaching fellow
+for Harvard&#8217;s legendary operating systems class,
+and I was tasked with writing &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -96,6 +95,68 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/20/writing-synchronization-problems-for-os161/">Writing Synchronization Problems for OS161</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-20T01:25:00-04:00" pubdate data-updated="true">Mar 20<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/03/20/writing-synchronization-problems-for-os161/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This semester, I have the privilege of being a teaching fellow
+for Harvard&#8217;s legendary <a href="http://www.eecs.harvard.edu/~margo/cs161/">operating systems class</a>,
+and I was tasked with writing the synchronization problems for
+this year&#8217;s synchprobs assignment! The goal of these problems
+is to get students to think carefully about the synchronization
+primitives and data structures needed to solve highly concurrent
+problems, avoiding the usual problems that come with concurrency:
+race conditions, deadlock, starvation, etc.</p>
+
+<p>I remember how fun these problems
+were last year (forming little fellowships of the ring and piazza posts,
+meant to mimic creating barriers and reader-writer locks), and
+I wanted to make sure the problems were just as fun this year.
+I was tasked specifically to write problems to mimic the
+synchronization one would use to implement <code>waitpid()</code>/<code>exit()</code>
+(how would you do it?) and the synchronization needed
+between address spaces and the coremap when implementing
+a virtual memory system in the third assignment. Given
+these specifications, I came up with
+<strong>Singing Cows</strong> and <strong><del>Hunger</del> Deletion Games</strong> synchprobs!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/03/20/writing-synchronization-problems-for-os161/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -1207,45 +1268,9 @@ of these backgrounds!</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/01/14/first-post/">First Post!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-14T13:06:00-05:00" pubdate data-updated="true">Jan 14<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/01/14/first-post/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This will be my tech blog where I post my thoughts (and hopefully some code) about computer science, math, and whatever the likes. I&#8217;m using <a href="http://octopress.org/" title="Octopress">Octopress</a> for blog generation, and I&#8217;m hosting it on my Github page. Nice and simple. Yessss.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -1256,6 +1281,10 @@ of these backgrounds!</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/20/writing-synchronization-problems-for-os161/">Writing Synchronization Problems for OS161</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/19/c-error-handling/">C Error Handling</a>
@@ -1273,10 +1302,6 @@ of these backgrounds!</p>
         <a href="/blog/2012/12/10/pipeline-for-improving-hand-tracking-accuracy/">Pipeline for Improving Hand Tracking Accuracy</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/08/22/java-flag-command-line-library/">Java Flag Command Line Library</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -1285,7 +1310,7 @@ of these backgrounds!</p>
 
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/binary-search' style='font-size: 120.0%'>binary search</a> <a href='/blog/categories/c' style='font-size: 120.0%'>c</a> <a href='/blog/categories/c-' style='font-size: 120.0%'>c++</a> <a href='/blog/categories/chrome-extension' style='font-size: 120.0%'>chrome extension</a> <a href='/blog/categories/compilers' style='font-size: 120.0%'>compilers</a> <a href='/blog/categories/computer-vision' style='font-size: 120.0%'>computer vision</a> <a href='/blog/categories/coupling' style='font-size: 120.0%'>coupling</a> <a href='/blog/categories/design' style='font-size: 120.0%'>design</a> <a href='/blog/categories/error-handling' style='font-size: 120.0%'>error handling</a> <a href='/blog/categories/flags' style='font-size: 120.0%'>flags</a> <a href='/blog/categories/git' style='font-size: 120.0%'>git</a> <a href='/blog/categories/java' style='font-size: 140.0%'>java</a> <a href='/blog/categories/javascript' style='font-size: 140.0%'>javascript</a> <a href='/blog/categories/knewton' style='font-size: 120.0%'>knewton</a> <a href='/blog/categories/layout' style='font-size: 120.0%'>layout</a> <a href='/blog/categories/markov-chains' style='font-size: 120.0%'>markov chains</a> <a href='/blog/categories/math' style='font-size: 160.0%'>math</a> <a href='/blog/categories/octopress' style='font-size: 140.0%'>octopress</a> <a href='/blog/categories/opencv' style='font-size: 120.0%'>opencv</a> <a href='/blog/categories/probability' style='font-size: 120.0%'>probability</a> <a href='/blog/categories/proofs' style='font-size: 120.0%'>proofs</a> <a href='/blog/categories/python' style='font-size: 140.0%'>python</a> <a href='/blog/categories/statistics' style='font-size: 120.0%'>statistics</a> <a href='/blog/categories/teaching' style='font-size: 120.0%'>teaching</a> <a href='/blog/categories/unix' style='font-size: 120.0%'>unix</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/binary-search' style='font-size: 120.0%'>binary search</a> <a href='/blog/categories/c' style='font-size: 140.0%'>c</a> <a href='/blog/categories/c-' style='font-size: 120.0%'>c++</a> <a href='/blog/categories/chrome-extension' style='font-size: 120.0%'>chrome extension</a> <a href='/blog/categories/compilers' style='font-size: 120.0%'>compilers</a> <a href='/blog/categories/computer-vision' style='font-size: 120.0%'>computer vision</a> <a href='/blog/categories/concurrency' style='font-size: 120.0%'>concurrency</a> <a href='/blog/categories/coupling' style='font-size: 120.0%'>coupling</a> <a href='/blog/categories/design' style='font-size: 120.0%'>design</a> <a href='/blog/categories/error-handling' style='font-size: 120.0%'>error handling</a> <a href='/blog/categories/flags' style='font-size: 120.0%'>flags</a> <a href='/blog/categories/git' style='font-size: 120.0%'>git</a> <a href='/blog/categories/java' style='font-size: 140.0%'>java</a> <a href='/blog/categories/javascript' style='font-size: 140.0%'>javascript</a> <a href='/blog/categories/knewton' style='font-size: 120.0%'>knewton</a> <a href='/blog/categories/layout' style='font-size: 120.0%'>layout</a> <a href='/blog/categories/markov-chains' style='font-size: 120.0%'>markov chains</a> <a href='/blog/categories/math' style='font-size: 160.0%'>math</a> <a href='/blog/categories/octopress' style='font-size: 140.0%'>octopress</a> <a href='/blog/categories/opencv' style='font-size: 120.0%'>opencv</a> <a href='/blog/categories/operating-systems' style='font-size: 120.0%'>operating systems</a> <a href='/blog/categories/probability' style='font-size: 120.0%'>probability</a> <a href='/blog/categories/proofs' style='font-size: 120.0%'>proofs</a> <a href='/blog/categories/python' style='font-size: 140.0%'>python</a> <a href='/blog/categories/statistics' style='font-size: 120.0%'>statistics</a> <a href='/blog/categories/synchronization' style='font-size: 120.0%'>synchronization</a> <a href='/blog/categories/systems' style='font-size: 140.0%'>systems</a> <a href='/blog/categories/teaching' style='font-size: 140.0%'>teaching</a> <a href='/blog/categories/unix' style='font-size: 120.0%'>unix</a> </span>
 </section>
 
 <section>

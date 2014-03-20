@@ -3,7 +3,7 @@ layout: post
 title: "Writing Synchronization Problems for OS161"
 date: 2014-03-20 01:25
 comments: true
-categories: [c, operating systems, concurrency, synchronization]
+categories: [c, systems, operating systems, concurrency, synchronization, teaching]
 ---
 
 This semester, I have the privilege of being a teaching fellow

@@ -3,7 +3,7 @@ layout: post
 title: "C Error Handling"
 date: 2014-03-19 19:42
 comments: true
-categories: [c, error handling]
+categories: [c, error handling, systems]
 ---
 
 After taking an [operating systems class](http://www.eecs.harvard.edu/~margo/cs161/)

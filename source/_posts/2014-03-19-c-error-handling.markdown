@@ -6,8 +6,9 @@ comments: true
 categories: [c, error handling]
 ---
 
-After taking an operating systems class last year and taking a data systems
-class this semester, I've picked up a few C patterns
+After taking an [operating systems class](http://www.eecs.harvard.edu/~margo/cs161/)
+last year and taking a
+[data systems class](http://stratos.seas.harvard.edu/classes/cs165-data-systems) this semester, I've picked up a few patterns
 to make it easier to handle error conditions in C.
 
 Consider the following example from my data systems class, where I initialize
@@ -177,7 +178,7 @@ the quadratic code growth in error handling! Furthermore,
 there is only one exit point of this function (at the very
 bottom), and reasoning about exit points for this version
 is much easier than the previous version, especially
-when we throw in concurrencry primitivies and needing to remember
+when we throw in concurrencry primitives and needing to remember
 to release locks.
 
 To eliminate the boiler plate of checking the return value

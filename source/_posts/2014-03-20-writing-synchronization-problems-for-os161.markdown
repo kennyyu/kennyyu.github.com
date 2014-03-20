@@ -40,11 +40,11 @@ cow wait until **any** baby cow finishes singing.
 I had just watched *Hunger Games: Catching Fire*, and this
 was my inspiration for the second problem: **~~Hunger~~ Deletion Games**.
 In this problem, Katniss and Peeta each have multiple threads
-and are attempting to sever connections between the districts
+and are attempting to sever mappings between the districts
 and the capitol (for the sake of the problem, assume there
-are `NSLOTS` districts). These connections are represented
-by a bijection between each
-capitol slot and each district slot. The catch in this problem,
+are `NSLOTS` districts). These mappings are represented
+by a bijection between
+capitol slots and district slots. The catch in this problem,
 however, is that Katniss and Peeta are concurrently deleting
 from opposite sides (Katniss from the capitol side and Peeta
 from the district side), so students must avoid
@@ -64,7 +64,7 @@ To see the source code for the problems and scripts to
 check the solutions, see the [github repo](https://github.com/kennyyu/cs161-a1scripts).
 
 The problem statements are shown below. Correct implementations should
-avoid big lock solutions, and should now allow race conditions,
+avoid big lock solutions, and should not allow race conditions,
 deadlocks, and starvation.
 
 ## Singing Cows
@@ -158,7 +158,8 @@ However, without proper synchronization, we may get:
 
 *  race conditions: if multiple threads attempt to delete the same mappings at the same time
 *  deadlock: Katniss and Peeta try to delete the (capitol 4, district 12)
-   mappings at the same time starting from opposite sides.
+   mappings at the same time starting from opposite sides
+*  starvation: all the mappings must eventually be deleted
 
 Your solution must satisfy these conditions:
 

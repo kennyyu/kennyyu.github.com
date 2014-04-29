@@ -89,7 +89,8 @@ that I've taught:
   that as an opportunity to present the course material in a different light
   from the way material was presented in lecture, hopefully providing confused students a
   clearer picture of course concepts. In my second time teaching the class, I was one of
-  the few returning course staff from the previous year, and Eddie valued my opinion
+  the few returning course staff from the previous year, and I felt honored
+  that Eddie valued my opinion
   on what I thought were the good and bad parts from the previous year.
 
 * **[CS161 Synchronization Problems](http://kennyyu.me/blog/2014/03/20/writing-synchronization-problems-for-os161/)** - At the beginning of this semester, I was tasked
@@ -174,8 +175,9 @@ students over the past three years, I've learned a few lessons:
   more "advanced" is their ability to self-diagnose their own problems and take
   the initiative to resolve them. Thus, my philosophy for office hours is to emphasize
   teaching students the tools to go about solving a problem instead of telling
-  them the answer directly. One of my students who gave me a 5 for overall Q rating
-  remarked on this philosophy in a comment, stating "Kenny has tough love at office hours."
+  them the answer directly. One of my students
+  remarked on this philosophy in a comment in the Q guide,
+  stating "Kenny has tough love at office hours."
 
 * **Grading is very difficult.** For me, grading is typically the most difficult
   and time consuming part of being a TF. Automated testing for correctness is
@@ -233,7 +235,8 @@ Of course, there are downsides as well for being a teaching fellow:
 * **Office hours is 24/7, even for classes you're not teaching.** For large classes,
   you often have many friends in the class. As a result, friends will direct
   their questions to you in-person, through instant message, and through many other
-  means even when you're not having office hours. It can be difficult to draw the boundary
+  means even when you're not having office hours. You'll also get questions for
+  classes that you're not teaching. It can be difficult to draw the boundary
   between being a helpful friend and being a teaching fellow.
 
 * **It is time consuming.** This semester, I've probably spent more time working on

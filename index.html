@@ -9,9 +9,8 @@
   <meta name="author" content="Kenny Yu">
 
   
-  <meta name="description" content="I taught my last section as an undergraduate today.
-I&#8217;ve been a teaching fellow for a computer science class
-every semester for the past three &hellip;">
+  <meta name="description" content="This past semester, I took ES50, Harvard&#8217;s introductory course in electrical
+engineering. For our final project, my group decided to make a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -95,6 +94,60 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/06/04/tinibot-a-voice-activated-drink-mixer/">tiniBot: A Voice-Activated Drink Mixer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-04T19:34:00-04:00" pubdate data-updated="true">Jun 4<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/06/04/tinibot-a-voice-activated-drink-mixer/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/xetTOXwaTmc "></iframe></div>
+
+
+<p>This past semester, I took ES50, Harvard&#8217;s introductory course in electrical
+engineering. For our final project, my group decided to make a voice-activated
+drink mixer! I was in charge of the coding component of the project.</p>
+
+<p><img src="/images/tinibot-code.jpg" alt="Omnibox GDrive Search" /></p>
+
+<p>The code is available on <a href="https://github.com/kennyyu/tinibot">github</a>.
+To do the speech recognition, I
+used the Chrome Speech API. Once I have the transcribed text, I send
+the text to a local server, which figures out the drink that was ordered,
+and then sends the appropriate times to open each of the bottles.
+The server sends these times to the attached Arduino, which then
+sends current to the appropriate solenoid valves for the designated times.
+When activated, the solenoid valves allow liquid to flow through.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1239,65 +1292,6 @@ for each version of binary search), check out the source
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/17/new-layout/">New Layout, LaTeX, and Tag Clouds!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-17T00:03:00-04:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/05/17/new-layout/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I got a new octopress layout using Melandri&#8217;s layout
-<a href="http://melandri.net/2012/02/14/octopress-theme-customization/">here</a>.
-I also discovered how to make cool striped backgrounds with
-<a href="http://www.stripegenerator.com/">StripeGenerator</a>, use cool new fonts
-from <a href="http://www.theleagueofmoveabletype.com/">The League of Movable Type</a>,
-and use cool pre-made icons with
-<a href="http://www.doublejdesign.co.uk/">Double-J Design</a>. Hopefully the layout
-will encourage me to actually keep up with my tech blog!</p>
-
-<p>I also installed $\LaTeX$ integration with Octopress using the handy hints from
-<a href="http://luikore.github.com/2011/09/good-things-learned-from-octopress/">here</a>.
-Now I can write pretty in-line equations like $e^{i\pi} + 1 = 0$ or
-centered equations like
-$$\int_{\Omega} \, d\omega = \int_{\partial \Omega} \, \omega.$$
-Nice! Hopefully this will motivate me to write more math-related entries!</p>
-
-<p>To keep track of tags, I installed a plugin to generate tag clouds
-(see the right sidebar) using this plugin
-<a href="https://github.com/tokkonopapa/octopress-tagcloud">here</a>. I also
-finally discovered how to make background images that are just noises using
-this background generator <a href="http://bgpatterns.com/">here</a>. I like the simplicity
-of these backgrounds!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1311,6 +1305,10 @@ of these backgrounds!</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/04/tinibot-a-voice-activated-drink-mixer/">tiniBot: A Voice-Activated Drink Mixer</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/29/reflecting-on-3-years-of-teaching/">Reflecting on 3 Years of Teaching</a>
@@ -1328,10 +1326,6 @@ of these backgrounds!</p>
         <a href="/blog/2013/11/18/bootcamps/">Learning Through Bootcamps</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/10/20/omnibox-gdrive-search/">Omnibox GDrive Search</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -1340,7 +1334,7 @@ of these backgrounds!</p>
 
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/binary-search' style='font-size: 120.0%'>binary search</a> <a href='/blog/categories/c' style='font-size: 140.0%'>c</a> <a href='/blog/categories/c-' style='font-size: 120.0%'>c++</a> <a href='/blog/categories/chrome-extension' style='font-size: 120.0%'>chrome extension</a> <a href='/blog/categories/compilers' style='font-size: 120.0%'>compilers</a> <a href='/blog/categories/computer-vision' style='font-size: 120.0%'>computer vision</a> <a href='/blog/categories/concurrency' style='font-size: 120.0%'>concurrency</a> <a href='/blog/categories/coupling' style='font-size: 120.0%'>coupling</a> <a href='/blog/categories/design' style='font-size: 120.0%'>design</a> <a href='/blog/categories/error-handling' style='font-size: 120.0%'>error handling</a> <a href='/blog/categories/flags' style='font-size: 120.0%'>flags</a> <a href='/blog/categories/git' style='font-size: 120.0%'>git</a> <a href='/blog/categories/java' style='font-size: 140.0%'>java</a> <a href='/blog/categories/javascript' style='font-size: 140.0%'>javascript</a> <a href='/blog/categories/knewton' style='font-size: 120.0%'>knewton</a> <a href='/blog/categories/layout' style='font-size: 120.0%'>layout</a> <a href='/blog/categories/markov-chains' style='font-size: 120.0%'>markov chains</a> <a href='/blog/categories/math' style='font-size: 160.0%'>math</a> <a href='/blog/categories/octopress' style='font-size: 140.0%'>octopress</a> <a href='/blog/categories/opencv' style='font-size: 120.0%'>opencv</a> <a href='/blog/categories/operating-systems' style='font-size: 120.0%'>operating systems</a> <a href='/blog/categories/probability' style='font-size: 120.0%'>probability</a> <a href='/blog/categories/proofs' style='font-size: 120.0%'>proofs</a> <a href='/blog/categories/python' style='font-size: 140.0%'>python</a> <a href='/blog/categories/school' style='font-size: 120.0%'>school</a> <a href='/blog/categories/statistics' style='font-size: 120.0%'>statistics</a> <a href='/blog/categories/synchronization' style='font-size: 120.0%'>synchronization</a> <a href='/blog/categories/systems' style='font-size: 140.0%'>systems</a> <a href='/blog/categories/teaching' style='font-size: 160.0%'>teaching</a> <a href='/blog/categories/unix' style='font-size: 120.0%'>unix</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/arduino' style='font-size: 120.0%'>arduino</a> <a href='/blog/categories/binary-search' style='font-size: 120.0%'>binary search</a> <a href='/blog/categories/c' style='font-size: 140.0%'>c</a> <a href='/blog/categories/c-' style='font-size: 120.0%'>c++</a> <a href='/blog/categories/chrome' style='font-size: 120.0%'>chrome</a> <a href='/blog/categories/chrome-extension' style='font-size: 120.0%'>chrome extension</a> <a href='/blog/categories/compilers' style='font-size: 120.0%'>compilers</a> <a href='/blog/categories/computer-vision' style='font-size: 120.0%'>computer vision</a> <a href='/blog/categories/concurrency' style='font-size: 120.0%'>concurrency</a> <a href='/blog/categories/coupling' style='font-size: 120.0%'>coupling</a> <a href='/blog/categories/design' style='font-size: 120.0%'>design</a> <a href='/blog/categories/electrical-engineering' style='font-size: 120.0%'>electrical engineering</a> <a href='/blog/categories/error-handling' style='font-size: 120.0%'>error handling</a> <a href='/blog/categories/flags' style='font-size: 120.0%'>flags</a> <a href='/blog/categories/git' style='font-size: 120.0%'>git</a> <a href='/blog/categories/java' style='font-size: 140.0%'>java</a> <a href='/blog/categories/javascript' style='font-size: 140.0%'>javascript</a> <a href='/blog/categories/knewton' style='font-size: 120.0%'>knewton</a> <a href='/blog/categories/layout' style='font-size: 120.0%'>layout</a> <a href='/blog/categories/markov-chains' style='font-size: 120.0%'>markov chains</a> <a href='/blog/categories/math' style='font-size: 160.0%'>math</a> <a href='/blog/categories/octopress' style='font-size: 140.0%'>octopress</a> <a href='/blog/categories/opencv' style='font-size: 120.0%'>opencv</a> <a href='/blog/categories/operating-systems' style='font-size: 120.0%'>operating systems</a> <a href='/blog/categories/probability' style='font-size: 120.0%'>probability</a> <a href='/blog/categories/proofs' style='font-size: 120.0%'>proofs</a> <a href='/blog/categories/python' style='font-size: 160.0%'>python</a> <a href='/blog/categories/school' style='font-size: 120.0%'>school</a> <a href='/blog/categories/statistics' style='font-size: 120.0%'>statistics</a> <a href='/blog/categories/synchronization' style='font-size: 120.0%'>synchronization</a> <a href='/blog/categories/systems' style='font-size: 140.0%'>systems</a> <a href='/blog/categories/teaching' style='font-size: 160.0%'>teaching</a> <a href='/blog/categories/unix' style='font-size: 120.0%'>unix</a> </span>
 </section>
 
 <section>

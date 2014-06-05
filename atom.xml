@@ -4,7 +4,7 @@
   <title><![CDATA[kennary island]]></title>
   <link href="http://kennyyu.me/atom.xml" rel="self"/>
   <link href="http://kennyyu.me/"/>
-  <updated>2014-04-29T16:55:40-04:00</updated>
+  <updated>2014-06-04T23:25:09-04:00</updated>
   <id>http://kennyyu.me/</id>
   <author>
     <name><![CDATA[Kenny Yu]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[tiniBot: A Voice-Activated Drink Mixer]]></title>
+    <link href="http://kennyyu.me/blog/2014/06/04/tinibot-a-voice-activated-drink-mixer/"/>
+    <updated>2014-06-04T19:34:00-04:00</updated>
+    <id>http://kennyyu.me/blog/2014/06/04/tinibot-a-voice-activated-drink-mixer</id>
+    <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/xetTOXwaTmc "></iframe></div>
+
+
+<p>This past semester, I took ES50, Harvard&#8217;s introductory course in electrical
+engineering. For our final project, my group decided to make a voice-activated
+drink mixer! I was in charge of the coding component of the project.</p>
+
+<p><img src="http://kennyyu.me/images/tinibot-code.jpg" alt="Omnibox GDrive Search" /></p>
+
+<p>The code is available on <a href="https://github.com/kennyyu/tinibot">github</a>.
+To do the speech recognition, I
+used the Chrome Speech API. Once I have the transcribed text, I send
+the text to a local server, which figures out the drink that was ordered,
+and then sends the appropriate times to open each of the bottles.
+The server sends these times to the attached Arduino, which then
+sends current to the appropriate solenoid valves for the designated times.
+When activated, the solenoid valves allow liquid to flow through.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reflecting on 3 Years of Teaching]]></title>

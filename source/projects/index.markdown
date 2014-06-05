@@ -9,6 +9,8 @@ footer: true
 
 Here are some of the projects I've worked on recently:
 
+*   [tiniBot](http://kennyyu.me/blog/2014/06/04/tinibot-a-voice-activated-drink-mixer/) - a voice-activated drink mixer! This was my final project for an electrical engineering class.
+
 *   [HCS Bootcamps](https://github.com/hcs/bootcamp-main) - A suite of bootcamps I wrote to teach new programmers basic software engineering skills.
     Read about my experiences in [my blog post](http://kennyyu.me/blog/2013/11/18/bootcamps/).
 

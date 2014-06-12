@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | kennary island]]></title>
   <link href="http://kennyyu.me/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://kennyyu.me/"/>
-  <updated>2014-06-12T16:27:37-04:00</updated>
+  <updated>2014-06-12T16:36:18-04:00</updated>
   <id>http://kennyyu.me/</id>
   <author>
     <name><![CDATA[Kenny Yu]]></name>
@@ -160,24 +160,24 @@ I wrote when <a href="http://kennyyu.me/blog/2014/04/29/reflecting-on-3-years-of
 I took them (and possible links to related blog posts).</p>
 
 <ol>
-<li>CS50 - Introduction to Computer Science (Fall 2010)</li>
+<li><a href="https://github.com/kennyyu/cs50section">CS50 - Introduction to Computer Science</a> (Fall 2010)</li>
 <li>CS51 - Abstraction and Design (Spring 2011)</li>
 <li>CS179 - Design of Usable Interactive Systems (Spring 2011)</li>
 <li>CS61 - Systems Programming and Machine Organization (Fall 2011)</li>
 <li>CS153 - Compilers (Fall 2011)</li>
 <li>CS124 - Algorithms and Data Structures (Spring 2012)</li>
 <li>CS262 - Introduction to Distributed Computing (Spring 2012)</li>
-<li>CS207 - Systems Development for Computational Science (Spring 2012)</li>
+<li><a href="http://kennyyu.me/blog/2012/05/18/binary-search/">CS207 - Systems Development for Computational Science</a> (Spring 2012)</li>
 <li>CS121 - Introduction to Theory of Computer Science (Fall 2012)</li>
-<li>CS283 - Computer Vision (Fall 2012)</li>
+<li><a href="http://kennyyu.me/blog/2012/12/10/pipeline-for-improving-hand-tracking-accuracy/">CS283 - Computer Vision</a> (Fall 2012)</li>
 <li>CS181 - Artificial Intelligence (Spring 2013)</li>
 <li><a href="http://kennyyu.me/blog/2014/03/20/writing-synchronization-problems-for-os161/">CS161 - Operating Systems</a> (Spring 2013)</li>
 <li>CS261 - Research Topics in Operating Systems (Fall 2013)</li>
-<li>CS109 - Data Science (Fall 2013)</li>
+<li><a href="http://cs109.joeong.com/">CS109 - Data Science</a> (Fall 2013)</li>
 <li><a href="http://kennyyu.me/blog/2013/11/18/bootcamps/">CS91r - Supervised Reading and Research with Jim Waldo</a> (Fall 2013)</li>
 <li><a href="http://kennyyu.me/blog/2014/03/19/c-error-handling/">CS165 - Data Systems</a> (Spring 2014)</li>
 <li>CS91r - Supervised Reading and Research  with Margo Seltzer (Spring 2014)</li>
-<li>ES50 - Introduction to Electrical Engineering (Spring 2014)</li>
+<li><a href="http://kennyyu.me/blog/2014/06/04/tinibot-a-voice-activated-drink-mixer/">ES50 - Introduction to Electrical Engineering</a> (Spring 2014)</li>
 </ol>
 
 

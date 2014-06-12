@@ -3,7 +3,7 @@ layout: post
 title: "197,717 Lines of Code Later..."
 date: 2014-06-12 15:16
 comments: true
-categories: [python, school]
+categories: [python, school, git]
 ---
 
 After taking 18 computer science classes at Harvard (17 in CS, 1 in EE),

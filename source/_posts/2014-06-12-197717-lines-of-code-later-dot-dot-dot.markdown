@@ -138,24 +138,24 @@ I followed these rules when calculating my total line count.
 For reference, here's the list of the computer science classes I've taken and when
 I took them (and possible links to related blog posts).
 
-1. CS50 - Introduction to Computer Science (Fall 2010)
+1. [CS50 - Introduction to Computer Science](https://github.com/kennyyu/cs50section) (Fall 2010)
 2. CS51 - Abstraction and Design (Spring 2011)
 3. CS179 - Design of Usable Interactive Systems (Spring 2011)
 4. CS61 - Systems Programming and Machine Organization (Fall 2011)
 5. CS153 - Compilers (Fall 2011)
 6. CS124 - Algorithms and Data Structures (Spring 2012)
 7. CS262 - Introduction to Distributed Computing (Spring 2012)
-8. CS207 - Systems Development for Computational Science (Spring 2012)
+8. [CS207 - Systems Development for Computational Science](http://kennyyu.me/blog/2012/05/18/binary-search/) (Spring 2012)
 9. CS121 - Introduction to Theory of Computer Science (Fall 2012)
-10. CS283 - Computer Vision (Fall 2012)
+10. [CS283 - Computer Vision](http://kennyyu.me/blog/2012/12/10/pipeline-for-improving-hand-tracking-accuracy/) (Fall 2012)
 11. CS181 - Artificial Intelligence (Spring 2013)
 12. [CS161 - Operating Systems](http://kennyyu.me/blog/2014/03/20/writing-synchronization-problems-for-os161/) (Spring 2013)
 13. CS261 - Research Topics in Operating Systems (Fall 2013)
-14. CS109 - Data Science (Fall 2013)
+14. [CS109 - Data Science](http://cs109.joeong.com/) (Fall 2013)
 15. [CS91r - Supervised Reading and Research with Jim Waldo](http://kennyyu.me/blog/2013/11/18/bootcamps/) (Fall 2013)
 16. [CS165 - Data Systems](http://kennyyu.me/blog/2014/03/19/c-error-handling/) (Spring 2014)
 17. CS91r - Supervised Reading and Research  with Margo Seltzer (Spring 2014)
-18. ES50 - Introduction to Electrical Engineering (Spring 2014)
+18. [ES50 - Introduction to Electrical Engineering](http://kennyyu.me/blog/2014/06/04/tinibot-a-voice-activated-drink-mixer/) (Spring 2014)
 
 ## Results
 

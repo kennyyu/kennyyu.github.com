@@ -3,7 +3,7 @@ layout: post
 title: "Technical Interview Workshop"
 date: 2014-07-31 01:06
 comments: true
-categories: [interviews, c, school]
+categories: [interviews, c, school, teaching]
 ---
 
 In November 2012, I gave a seminar about [technical interviews](https://github.com/kennyyu/workshop)

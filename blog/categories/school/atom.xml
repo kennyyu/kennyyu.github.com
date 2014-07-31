@@ -4,7 +4,7 @@
   <title><![CDATA[Category: school | kennary island]]></title>
   <link href="http://kennyyu.me/blog/categories/school/atom.xml" rel="self"/>
   <link href="http://kennyyu.me/"/>
-  <updated>2014-06-12T16:52:37-04:00</updated>
+  <updated>2014-07-31T01:17:04-04:00</updated>
   <id>http://kennyyu.me/</id>
   <author>
     <name><![CDATA[Kenny Yu]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Technical Interview Workshop]]></title>
+    <link href="http://kennyyu.me/blog/2014/07/31/technical-interview-workshop/"/>
+    <updated>2014-07-31T01:06:00-04:00</updated>
+    <id>http://kennyyu.me/blog/2014/07/31/technical-interview-workshop</id>
+    <content type="html"><![CDATA[<p>In November 2012, I gave a seminar about <a href="https://github.com/kennyyu/workshop">technical interviews</a>
+for students in CS50.
+I didn't realize that the video was on youtube until today, and it has almost 5000
+views! I'm glad I can keep a memento of me teaching!</p>
+
+<p>A note about the video: I usually use the whiteboard when teaching and I
+write much neater than I do in the video. However, I had to use a tablet
+for video recording purposes, and it's really hard to write on a touch screen!</p>
+
+<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/U0nvXHh7o-w "></iframe></div></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[197,717 Lines of Code Later...]]></title>

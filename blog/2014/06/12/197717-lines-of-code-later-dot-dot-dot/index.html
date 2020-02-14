@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>197,717 Lines of Code Later… | kennary island</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="197,717 Lines of Code Later…" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="After taking 18 computer science classes at Harvard (17 in CS, 1 in EE), I was curious to see exactly how many lines of code I have written for assignments these past four years. I was also curious what the breakdown would be for the different programming languages I’ve learned over the years. After looking through the archives of my computer, I calculated that I wrote 197,717 lines of code (141,008 insertions, 56,709 deletions) for my classes in the past four years! In fact, I believe this is actually an underestimate. In this post, I’ll talk about how I calculated this number, and assumptions I made when calculating this number." />
+<meta property="og:description" content="After taking 18 computer science classes at Harvard (17 in CS, 1 in EE), I was curious to see exactly how many lines of code I have written for assignments these past four years. I was also curious what the breakdown would be for the different programming languages I’ve learned over the years. After looking through the archives of my computer, I calculated that I wrote 197,717 lines of code (141,008 insertions, 56,709 deletions) for my classes in the past four years! In fact, I believe this is actually an underestimate. In this post, I’ll talk about how I calculated this number, and assumptions I made when calculating this number." />
+<link rel="canonical" href="http://kennyyu.me/blog/2014/06/12/197717-lines-of-code-later-dot-dot-dot/" />
+<meta property="og:url" content="http://kennyyu.me/blog/2014/06/12/197717-lines-of-code-later-dot-dot-dot/" />
+<meta property="og:site_name" content="kennary island" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-06-12T15:16:00-07:00" />
+<script type="application/ld+json">
+{"description":"After taking 18 computer science classes at Harvard (17 in CS, 1 in EE), I was curious to see exactly how many lines of code I have written for assignments these past four years. I was also curious what the breakdown would be for the different programming languages I’ve learned over the years. After looking through the archives of my computer, I calculated that I wrote 197,717 lines of code (141,008 insertions, 56,709 deletions) for my classes in the past four years! In fact, I believe this is actually an underestimate. In this post, I’ll talk about how I calculated this number, and assumptions I made when calculating this number.","@type":"BlogPosting","headline":"197,717 Lines of Code Later…","dateModified":"2014-06-12T15:16:00-07:00","datePublished":"2014-06-12T15:16:00-07:00","url":"http://kennyyu.me/blog/2014/06/12/197717-lines-of-code-later-dot-dot-dot/","mainEntityOfPage":{"@type":"WebPage","@id":"http://kennyyu.me/blog/2014/06/12/197717-lines-of-code-later-dot-dot-dot/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://kennyyu.me/feed.xml" title="kennary island" /><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+    });
+  </script>
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">kennary island</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/archives/">Archives</a><a class="page-link" href="/projects/">Projects</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">197,717 Lines of Code Later...</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-06-12T15:16:00-07:00" itemprop="datePublished">Jun 12, 2014
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>After taking 18 computer science classes at Harvard (17 in CS, 1 in EE),
+I was curious to see exactly how many lines of code I have written
+for assignments these past four years. I was also curious what the breakdown
+would be for the different programming languages I’ve learned over the years.</p>
+
+<p>After looking through the archives of my computer, I calculated that I wrote
+<strong>197,717</strong> lines of code (141,008 insertions, 56,709 deletions) for my
+classes in the past four years! In fact, I believe this is actually
+an underestimate. In this post, I’ll talk about how
+I calculated this number, and assumptions I made when calculating this
+number.</p>
+
+<p><img src="/images/count-course.png" alt="Lines of Code by Course" /></p>
+
+<p><img src="/images/count-filetype.png" alt="Lines of Code by File Type" /></p>
+
+<p><img src="/images/count-semester.png" alt="Lines of Code by Semester" /></p>
+
+<!-- more -->
+
+<h2 id="examining-my-git-log">Examining my git log</h2>
+
+<p>Fortunately, except for freshman year, I used git for all my projects
+and assignments. As a result, I can compute the number of lines of code I wrote
+by examining by git log history. Using git made calculating my contributions on
+group projects especially easy as git keeps track of who authored each commit.
+Furthermore, by examining the insertions and deletions of each commit, as opposed to
+examining the line count at the HEAD of the branch, I can see a more accurate number
+of lines I wrote and deleted, as opposed to the final count at the end of the
+assignment/project.</p>
+
+<p>For each git repository, I did the following:</p>
+
+<ol>
+  <li>
+    <p>Determine which commits were authored by me, using the following command:
+<code class="highlighter-rouge">git log --author=Kenny --oneline</code>.</p>
+  </li>
+  <li>
+    <p>For each of those commits, examine the insertion/deletion count for that
+commit, broken down for each file: <code class="highlighter-rouge">git show COMMIT --oneline --numstat</code></p>
+  </li>
+  <li>
+    <p>Aggregate those stats by file name across all the commits in a repository,
+then aggregate those stats by file type.</p>
+  </li>
+  <li>
+    <p>Do this across all the git repositories for all the courses I took.</p>
+  </li>
+</ol>
+
+<p>If you want to examine your own stats across a repository, you can check
+out my <a href="https://gist.github.com/kennyyu/5e59519b3972823e20bf">python counting script</a>.
+Here’s a snippet of the relevent code performing the steps above.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="k">def</span> <span class="nf">command</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="s">"""
+    Runs the shell command and returns the stdout as a list
+    of strings.
+    """</span>
+    <span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">s</span><span class="p">,</span>
+                            <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                            <span class="n">stderr</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">devnull</span><span class="p">,</span> <span class="s">"w"</span><span class="p">),</span>
+                            <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="c1"># strip trailing newline characters
+</span>    <span class="n">lines</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">commits_by_author</span><span class="p">(</span><span class="n">author</span><span class="p">):</span>
+    <span class="s">"""
+    Returns the list of commit hashes by the given author
+    """</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">command</span><span class="p">(</span><span class="s">"git log --author=</span><span class="se">\"</span><span class="si">%</span><span class="s">s</span><span class="se">\"</span><span class="s"> --oneline"</span> <span class="o">%</span> <span class="n">author</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">commit_stats</span><span class="p">(</span><span class="n">commit</span><span class="p">):</span>
+    <span class="s">"""
+    Returns a mapping of filename -&gt; (additions, deletions)
+    """</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">command</span><span class="p">(</span><span class="s">"git show </span><span class="si">%</span><span class="s">s --oneline --numstat"</span> <span class="o">%</span> <span class="n">commit</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># the first line is just a repeat of the hash, so skip it
+</span>    <span class="n">lines</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="c1"># stats are of the form:
+</span>    <span class="c1"># additions    deletions    filename
+</span>    <span class="n">stats</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="s">""</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">addition</span><span class="p">,</span> <span class="n">deletion</span><span class="p">,</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">addition</span> <span class="o">==</span> <span class="s">"-"</span><span class="p">:</span>
+            <span class="n">addition</span> <span class="o">=</span> <span class="s">"0"</span>
+        <span class="k">if</span> <span class="n">deletion</span> <span class="o">==</span> <span class="s">"-"</span><span class="p">:</span>
+            <span class="n">deletion</span> <span class="o">=</span> <span class="s">"0"</span>
+        <span class="n">addition</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">addition</span><span class="p">)</span>
+        <span class="n">deletion</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">deletion</span><span class="p">)</span>
+        <span class="n">stats</span><span class="p">[</span><span class="n">fname</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">addition</span><span class="p">,</span> <span class="n">deletion</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">stats</span></code></pre></figure>
+
+<h2 id="notes">Notes</h2>
+
+<p>I followed these rules when calculating my total line count.</p>
+
+<ul>
+  <li>
+    <p><strong>Ignore autogenerated, binary, or raw data files when calculating a line count.</strong>
+When I performed the count on my various git repositories, I noticed that I
+was not always very disciplined on what I was checking into the repository.
+Often, courses would want us to submit files that were autogenerated, and so I
+checked in autogenerated files, binaries, images, csvs, etc. into the repository.
+Thus, I made an option in my scipt to ignore certain file extensions so
+that I do not get an inflated line count. Furthermore, I took the notion of “code”
+to mean anything that was not autogenerated, so I included file types like
+ <code class="highlighter-rouge">.tex</code>, <code class="highlighter-rouge">.txt</code>, <code class="highlighter-rouge">.md</code> and <code class="highlighter-rouge">README</code> as code (as long as they were not autogenerated).</p>
+  </li>
+  <li>
+    <p><strong>Prefer underestimates over overestimates.</strong>
+I did not know how to use git freshman year, and as a result, I cannot get an
+accurate count for the number of lines of code for CS50, CS51, or CS179. As a result,
+I only included code that I entirely wrote myself, which excludes modifying code
+from distribution code from a problem set, and code I wrote as part of team projects.
+For CS51, I had the original
+tarball distribution for some of the assignments, so I was able to diff the distribution
+code with my final assignment submittion. As a result of this exlcusion, the line count
+for these three courses is much smaller than it actually is.</p>
+  </li>
+  <li>
+    <p><strong>Only include code written for assignments.</strong>
+As a result, I did not count lines of code written for section or lines of code
+I wrote when <a href="/blog/2014/04/29/reflecting-on-3-years-of-teaching/">TFing these past 3 years</a>.</p>
+  </li>
+</ul>
+
+<h2 id="classes-ive-taken">Classes I’ve Taken</h2>
+
+<p>For reference, here’s the list of the computer science classes I’ve taken and when
+I took them (and possible links to related blog posts).</p>
+
+<ol>
+  <li><a href="https://github.com/kennyyu/cs50section">CS50 - Introduction to Computer Science</a> (Fall 2010)</li>
+  <li>CS51 - Abstraction and Design (Spring 2011)</li>
+  <li>CS179 - Design of Usable Interactive Systems (Spring 2011)</li>
+  <li>CS61 - Systems Programming and Machine Organization (Fall 2011)</li>
+  <li>CS153 - Compilers (Fall 2011)</li>
+  <li>CS124 - Algorithms and Data Structures (Spring 2012)</li>
+  <li>CS262 - Introduction to Distributed Computing (Spring 2012)</li>
+  <li><a href="/blog/2012/05/18/binary-search/">CS207 - Systems Development for Computational Science</a> (Spring 2012)</li>
+  <li>CS121 - Introduction to Theory of Computer Science (Fall 2012)</li>
+  <li><a href="/blog/2012/12/10/pipeline-for-improving-hand-tracking-accuracy/">CS283 - Computer Vision</a> (Fall 2012)</li>
+  <li>CS181 - Artificial Intelligence (Spring 2013)</li>
+  <li><a href="/blog/2014/03/20/writing-synchronization-problems-for-os161/">CS161 - Operating Systems</a> (Spring 2013)</li>
+  <li>CS261 - Research Topics in Operating Systems (Fall 2013)</li>
+  <li><a href="http://cs109.joeong.com/">CS109 - Data Science</a> (Fall 2013)</li>
+  <li><a href="/blog/2013/11/18/bootcamps/">CS91r - Supervised Reading and Research with Jim Waldo</a> (Fall 2013)</li>
+  <li><a href="/blog/2014/03/19/c-error-handling/">CS165 - Data Systems</a> (Spring 2014)</li>
+  <li>CS91r - Supervised Reading and Research  with Margo Seltzer (Spring 2014)</li>
+  <li><a href="/blog/2014/06/04/tinibot-a-voice-activated-drink-mixer/">ES50 - Introduction to Electrical Engineering</a> (Spring 2014)</li>
+</ol>
+
+<h2 id="results">Results</h2>
+
+<p>It’s not a surprise for me that I have written more C code than any other language in college,
+but it surprised me that python was a close second. However, I realized that I
+now use python as my goto language for prototyping and data analysis, and I’ve used
+python in more classes than any other class (CS283, CS181, CS109, both CS91r’s, ES50, CS261)
+compared to C (CS61, CS161, CS165). I was surprised the java count was so high,
+as I have used java mainly in internships. I realized that this came from
+CS124 (I used java for Mitzenmacher’s programming assignments) and for CS262
+(you gotta use java if you’re in Jim Waldo’s class!). Furthermore, I was shocked
+that the ocaml (<code class="highlighter-rouge">.ml</code>) line count was so low, as I felt like I wrote much more code
+when taking CS153 (Compilers). However, I haven’t written ocaml code for a class since
+compilers, and so this count makes sense.</p>
+
+<p>I was a bit surprised at first on why the theoretical classes (CS124, CS121) had
+such a high line count, and then I realized it was mostly due to <code class="highlighter-rouge">.tex</code> files.</p>
+
+<p>CS161 is often considered the most difficult and time-consuming class at Harvard,
+and so I thought that CS161 would probably have the highest line count. I was surprised
+that CS181 and CS165 beat the CS161 count. I believe that because there was no
+distribution code for CS165 (Data Systems), I had to write a lot more (but less interesting)
+code to make all the glue for my database. For CS181, the course and assignments
+were so disorganized the year I took it, and as a result, there were frequent large commits
+that were mostly overhaul and rewriting everything.</p>
+
+<p>When examining the line count by semester, my spring semesters have a much
+higher line count than my fall semester, and my Spring 2013 semester has the
+highest count (not a surprise! I was taking CS161 and CS181 at that time).</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>In the end, I calculated that I made 197,717 changes
+(141,008 insertions, 56,709 deletions) over the past four years. This number is
+probably an underestimate, but I assume it’s around the ballpark of the true number
+of lines of code I’ve written in college. This makes me appreciate just how much
+one can learn and do in four years!</p>
+
+  </div><a class="u-url" href="/blog/2014/06/12/197717-lines-of-code-later-dot-dot-dot/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">kennary island</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">kennary island</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/kennyyu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">kennyyu</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

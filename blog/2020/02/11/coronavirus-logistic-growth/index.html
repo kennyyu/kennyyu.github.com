@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Modeling Number of Coronavirus Cases with Logistic Growth | kennary island</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Modeling Number of Coronavirus Cases with Logistic Growth" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="If you have been following the news recently, you may have heard of the spread of the Novel coronavirus 2019-nCoV. The growth in the number of cases poses some open questions: how many cases will we expect in the future, and at what point can we expect the number of new infections to plateau? In this post, I’ll attempt to answer these questions with mathematical modeling. With only a basic understanding of calculus and some calculations easily done in a spreadsheet, we can perform very accurate modeling of a very complicated natural phenomenon!" />
+<meta property="og:description" content="If you have been following the news recently, you may have heard of the spread of the Novel coronavirus 2019-nCoV. The growth in the number of cases poses some open questions: how many cases will we expect in the future, and at what point can we expect the number of new infections to plateau? In this post, I’ll attempt to answer these questions with mathematical modeling. With only a basic understanding of calculus and some calculations easily done in a spreadsheet, we can perform very accurate modeling of a very complicated natural phenomenon!" />
+<link rel="canonical" href="http://kennyyu.me/blog/2020/02/11/coronavirus-logistic-growth/" />
+<meta property="og:url" content="http://kennyyu.me/blog/2020/02/11/coronavirus-logistic-growth/" />
+<meta property="og:site_name" content="kennary island" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-11T20:00:00-08:00" />
+<script type="application/ld+json">
+{"description":"If you have been following the news recently, you may have heard of the spread of the Novel coronavirus 2019-nCoV. The growth in the number of cases poses some open questions: how many cases will we expect in the future, and at what point can we expect the number of new infections to plateau? In this post, I’ll attempt to answer these questions with mathematical modeling. With only a basic understanding of calculus and some calculations easily done in a spreadsheet, we can perform very accurate modeling of a very complicated natural phenomenon!","@type":"BlogPosting","headline":"Modeling Number of Coronavirus Cases with Logistic Growth","dateModified":"2020-02-11T20:00:00-08:00","datePublished":"2020-02-11T20:00:00-08:00","url":"http://kennyyu.me/blog/2020/02/11/coronavirus-logistic-growth/","mainEntityOfPage":{"@type":"WebPage","@id":"http://kennyyu.me/blog/2020/02/11/coronavirus-logistic-growth/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://kennyyu.me/feed.xml" title="kennary island" /><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+    });
+  </script>
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">kennary island</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/archives/">Archives</a><a class="page-link" href="/projects/">Projects</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Modeling Number of Coronavirus Cases with Logistic Growth</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-02-11T20:00:00-08:00" itemprop="datePublished">Feb 11, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>If you have been following the news recently, you may have
+heard of the spread of the <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">Novel coronavirus 2019-nCoV</a>.
+The growth in the number of cases poses some open questions:
+how many cases will we expect in the future, and at what point can we expect the number of new infections to plateau?
+In this post, I’ll attempt to answer these questions with mathematical modeling.
+<strong>With only a basic understanding of calculus and some calculations easily done in a spreadsheet, we can perform very
+accurate modeling of a very complicated natural phenomenon!</strong></p>
+
+<p>In school, we are typically given a function and then asked to calculate some properties about
+the function. For example, we might be asked to compute the value of the function for some given input:</p>
+
+<script type="math/tex; mode=display">\text{function} \to \text{value of function for some input}</script>
+
+<p>However, in the real world, we do not always have access to the underlying function.
+Instead, we might be given some observations about the world, and we want to use this data
+to try to find an approximation to the original function that might have generated
+those observations. For example,
+we have the data about <code class="highlighter-rouge">(date, total number of coronavirus cases)</code> for the past
+several weeks, and we want to find the function that best matches the data.</p>
+
+<script type="math/tex; mode=display">\text{observed data} \to \text{function}</script>
+
+<p>Once we have this equation, we can use it to predict the projected number of cases in the future.
+This process is very common in machine learning settings, where the process of estimating the parameters
+for the function is called <em>training</em>, and using the function to predict new values is called <em>inference</em>.</p>
+
+<script type="math/tex; mode=display">\text{observed data} \xrightarrow{\text{training}} \text{function} \xrightarrow{\text{inference}} \text{value of function for some new input}</script>
+
+<p>For example, in a machine learning setting, the function we try to estimate might be a
+probability distribution: given an email, what is the probability that it is spam? Training
+samples allow us to estimate the probability distribution model, and this probability distribution allows us to
+perform inference on future emails to determine if they are spam.</p>
+
+<p>The challenge with mathematical modeling is figuring out the right model to use
+that captures the underlying phenomenon we are observing, and then estimating
+the parameters for those models. In this post, I’ll talk about why a <a href="https://en.wikipedia.org/wiki/Logistic_function">logistic growth model</a> [1]
+can be used to model the number of coronavirus cases, and how we can estimate the parameters
+of the logistic growth model to infer number of cases in the future.</p>
+
+<h1 id="primer-about-differential-equations">Primer about differential equations</h1>
+
+<p>We can use a <em>differential equation</em> to understand the intuition behind the
+logistic growth model. For readers unfamiliar with differential equations,
+this section provide some intuition behind them.</p>
+
+<p>As a <a href="https://en.wikipedia.org/wiki/Functional_programming">functional programmer</a> [2]
+at heart, the best way I understand new concepts
+is to first understand the <em>types</em> involved. In the normal equations one
+typically sees in school, the solution to the equations are usually
+a set of <em>values</em> in the real numbers or complex numbers. For example,
+the solution to the following equation:</p>
+
+<script type="math/tex; mode=display">x^2 - 3x + 2 = 0</script>
+
+<p>is the set of real numbers</p>
+
+<script type="math/tex; mode=display">x \in \{1, 2\}.</script>
+
+<p>For a differential equation, the solution to the equation is a set of <em>functions</em>.
+For example, for the following differential equation where $r$ is a constant and
+$P$ is a function of $t$:</p>
+
+<script type="math/tex; mode=display">\frac{dP}{dt} = rP</script>
+
+<p>this equation means that both sides are equal for all values of $t$.
+The solution to this differential equation is a <em>family of functions</em>:</p>
+
+<script type="math/tex; mode=display">P = P_0 e^{rt}</script>
+
+<p>for all constants $P_0$. We can take the derivative to double
+check that it satisfies the differential equation:</p>
+
+<script type="math/tex; mode=display">\frac{dP}{dt} = \frac{d}{dt}\left( P_0 e^{rt} \right) = r P_0 e^{rt} = rP.</script>
+
+<h1 id="logistic-growth-differential-equation">Logistic growth differential equation</h1>
+
+<p>The differential equation above models <em>exponential growth</em>. As an example,
+we can imagine $P(0)$ as the population of bunnies at time $t = 0$. Given
+infinite resources in the environment, suppose each bunny has $r = 2$ bunnies
+as offspring every year. Then in the next year, we expect there to be $rP(0) = 2 * P(0)$
+additional bunnies, for a total of $P(1) = rP(0) + P(0)$ bunnies at time $t = 1$.
+In the second year, we expect there $rP(1) = 2 * P(1)$ additional bunnies, for a total
+of $P(2) = rP(1) + P(1)$ total bunnies, and so on.</p>
+
+<p>More generally, given a population size $P$ at time $t$, and a growth
+rate $r$, we expect the net change in total number of bunnies over some period of time, represented as the
+derivative, to be the following:</p>
+
+<script type="math/tex; mode=display">\frac{dP}{dt} = rP.</script>
+
+<p>However, the real world is constrained: there is not be enough food in
+the environment to support unlimited growth in bunnies. As more bunnies
+enter the population and the environment gets saturated, the growth in
+the number of additional bunnies added year over year should start 
+to decrease. To constrain the growth, we add an additional constraining factor
+into the differential equation:</p>
+
+<script type="math/tex; mode=display">\frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right)</script>
+
+<p>where $K$ is the maximum size the population will ever be. This differential equation
+models <em>logistic growth</em>.</p>
+
+<p>When $P$ is small, the right factor will be close to 1, and this function will
+approximate exponential growth. When $P$ grows and starts to approach $K$,
+the right factor will start to approach 0, and this causes
+the rate of growth to decrease. The solution to this differential equation is
+the family of functions</p>
+
+<script type="math/tex; mode=display">P = \frac{K}{1+\left(\frac{K - P_0}{P_0}\right)e^{-rt}}</script>
+
+<p>for all constants $P_0$. Here, $P_0$ represents the starting population size at time $t = 0$.</p>
+
+<p>Similar to population growth in a constrained environment, the logistic growth
+equation can also be used to model number of infected people with the novel coronavirus.
+During the initial outbreak, the number of cases grow exponentially. As
+more people became infected and people enter quarantine, the infection
+starts to saturate, as there are fewer new people to be infected.</p>
+
+<p>For more intuition
+and interesting properties about the logistic growth model, I highly recommend
+watching <a href="https://www.youtube.com/watch?v=ovJcsL7vyrk">this youtube video from the Veritasium channel</a> [3] – 
+this channel is great for learning interesting scientific and mathematical phenomenon, and is what
+inspired me to write this post!</p>
+
+<p>The rest of this post will discuss how we model the number of coronavirus cases over time
+using a logistic growth model. Our goal is the following:</p>
+
+<p>1) Using the current data available about <code class="highlighter-rouge">(date, total number of coronavirus cases)</code>, we want to infer
+   the logistic growth parameters $r, K, P_0$.</p>
+
+<p>2) Using the estimated parameters, predict the total number of coronavirus cases in the future.</p>
+
+<h1 id="estimating-logistic-growth-parameters">Estimating Logistic Growth Parameters</h1>
+
+<h4 id="estimating-r-and-k">Estimating $r$ and $K$</h4>
+
+<p>To calculate parameters $r, K, P_0$, let’s first rewrite the logistic growth differential equation by dividing both sides by $P$:</p>
+
+<script type="math/tex; mode=display">\frac{\frac{dP}{dt}}{P} = r\left(1 - \frac{P}{K}\right) = -\frac{r}{K}P + r.</script>
+
+<p>We can use the data <code class="highlighter-rouge">(date, total number of coronavirus cases)</code> to calculate the left hand side of the equation.
+For example, suppose our data looked like the following:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(t, P(t))
+(day 1, 100 cases)
+(day 2, 200 cases)
+(day 3, 400 cases)
+</code></pre></div></div>
+
+<p>Then we can estimate the derivative $dP/dt$ on day 2 using the following:</p>
+
+<script type="math/tex; mode=display">\frac{dP}{dt}(2) = \frac{\text{net change in cases}}{\text{net change in time}} = \frac{P(2 + 1) - P(2 - 1)}{(2 + 1) - (2 -1)} = \frac{400 - 100}{3 - 1} = 150.</script>
+
+<p>Dividing by $P(t)$ gives us the following:</p>
+
+<script type="math/tex; mode=display">\frac{\frac{dP}{dt}(2)}{P(2)} = \frac{150}{P(2)} = \frac{150}{200} = \frac{3}{4}.</script>
+
+<p>Note that in the rewritten equation, the left hand side is proportional to the right hand side,
+which reminds us of linear relationships $y = mx + b$:</p>
+
+<script type="math/tex; mode=display">\frac{\frac{dP}{dt}}{P} = -\frac{r}{K}P + r</script>
+
+<p>where $m = -r/K$ is the slope of $x = P$ with respect to $y = (dP/dt)/P$, and $b = r$ is the $y$-intercept. 
+To calculate the slope and the intercept, we can create a scatterplot of the calculated
+$(x, y) = (P, (dP/dt)/P)$ values in our dataset, and then use a 
+<a href="https://en.wikipedia.org/wiki/Linear_regression"><em>linear regression</em></a> [4] to calculate
+the line of best fit for the slope and intercept. In Google Sheets, you can calculate this using
+the <code class="highlighter-rouge">SLOPE</code> and <code class="highlighter-rouge">INTERCEPT</code> macros. For more information about this technique to find $r$ and $K$,
+take a look at <a href="https://www.maa.org/press/periodicals/loci/joma/logistic-growth-model-fitting-a-logistic-model-to-data-i">this MAA article</a> [5].</p>
+
+<p><img src="/images/logistic_linear_regression.png" alt="Linear Regression" /></p>
+
+<p>For our estimation, we used the number of coronavirus cases from January 23 to February 9, and
+we obtained this data from <a href="https://www.worldometers.info/coronavirus/coronavirus-cases/">this source</a> [6].
+The figure above shows the scatterplot and the blue line represents the results of the
+linear regression using all the data points.
+Note that the first few data points are outliers compared to the rest of the data. If we
+ignore these data points, we can estimate a more accurate line of best fit. 
+The <a href="https://en.wikipedia.org/wiki/Random_sample_consensus">Random Sample and Consensus (RANSAC) Algorithm</a> [7]
+can find this automatically, however in our case, it was simple enough to eyeball it from the
+scatterplot and manually exclude the initial data points, and this results in the line of best fit in red.</p>
+
+<p>From this linear regression, we calculated the following results for $r$ and $K$ to be the following:</p>
+
+<script type="math/tex; mode=display">r = 0.277</script>
+
+<script type="math/tex; mode=display">K = 51109</script>
+
+<p>This means that in our estimated model, the total number of people that will ever be infected with coronavirus will be $K = 51109$,
+and during the early exponential growth phase of the outbreak, each persion roughly infects $0.27$ new people per day.</p>
+
+<h4 id="estimating-p_0">Estimating $P_0$</h4>
+
+<p>Now that we have our estimates for $r$ and $K$, the final step is to estimate the initial starting population size $P_0$.
+To get some intuition on the potential values for $P_0$, I created two plots of the logistic growth function $P$
+using our calculated values for $r$ and $K$, and the two plots used different initial starting population size $P_0 = 1317$ and $P_0 = 2015$.
+These numbers were the number of total cases as of January 24 and January 25, respectively. The figure below shows the result.</p>
+
+<p><img src="/images/logistic_P0_guess.png" alt="Linear Regression" /></p>
+
+<p>The real number of cases (shown in blue) is sandwiched between the two estimated plots, and this shows that the true value of $P_0$ is somewhere
+between these two values. To calculate the optimal value of $P_0$ that gives us the best-fit logistic growth,
+we can define an optimization problem, where the solution to the optimization problem gives us the best fit value for $P_0$.</p>
+
+<p>Let $P_{est}(P_0, t)$ be the estimated total number of coronavirus cases at time $t$, using the $r$ and $K$ values we calculated earlier, and
+the provided input $P_0$. This estimation will probably not match exactly the real observed number of cases $P_{real}(t)$. Let</p>
+
+<script type="math/tex; mode=display">\text{Error}(P_0, t) = (P_{est}(P_0, t) - P_{real}(t))^2</script>
+
+<p>represent the error between our estimation and true number of cases at time $t$ and a given $P_0$.
+Here, we chose the square of the difference so that the error function is always non-negative and is
+differentiable (unlike the absolute value function). Next, we define the total error function:</p>
+
+<script type="math/tex; mode=display">\text{TotalError}(P_0) = \sum_{t} \text{Error}(P_0, t)</script>
+
+<p>be the sum of all the errors for all observed data points at times $t$.
+By making the error function always be non-negative, this allows us to reframe the search for the best $P_0$ for our logistic growth model
+as an optimization problem: the value of $P_0$ that minimizes the total error will be the best $P_0$ for our model.</p>
+
+<p>Analytically, we can calculate the extrema (minimum and maximum) of a function by taking the derivative with respect to $P_0$ and setting it equal to 0:</p>
+
+<script type="math/tex; mode=display">\frac{d}{dP_0} \text{TotalError}(P_0) = 0</script>
+
+<p>However, the calculations involved in doing this derivative for all data points would be too complex.
+Instead, I used <a href="https://gist.github.com/kennyyu/a68b647068551b14e2463d44ec53a99e">this python script</a>
+to calculate
+the $\text{TotalError}(P_0)$ function for all values between our initial estimates of $P_0 = 1317$ and $P_0 = 2015$, and 
+plotted the data in the figure below.</p>
+
+<p><img src="/images/logistic_P0_estimate.png" alt="Linear Regression" /></p>
+
+<p>From this plot, we see that we achieve the minimum total error when</p>
+
+<script type="math/tex; mode=display">P_0 = 1634.</script>
+
+<h1 id="predicting-number-of-future-coronavirus-cases">Predicting number of future Coronavirus cases</h1>
+
+<p>Finally, we have all the estimates for the parameters for our logistic growth model $P$.
+For the data <code class="highlighter-rouge">(date, total number of coronavirus cases)</code> <a href="https://www.worldometers.info/coronavirus/coronavirus-cases/">from January 23 to February 9</a>,
+we have the following values for our parameters:</p>
+
+<script type="math/tex; mode=display">P = \frac{K}{1+\left(\frac{K - P_0}{P_0}\right)e^{-rt}}</script>
+
+<p>where:</p>
+
+<script type="math/tex; mode=display">r = 0.277</script>
+
+<script type="math/tex; mode=display">K = 51109</script>
+
+<script type="math/tex; mode=display">P_0 = 1634</script>
+
+<p>For reference, the calculations and figures were
+done in <a href="https://docs.google.com/spreadsheets/d/144t1-LOYBLMuPm4ojgLeP_RddcNPnF_8sD5CVtUTfCo/edit#gid=0">this Google Sheet</a> [8].
+Using these parameters in our function $P$, we can use it to predict the number of cases
+at a future time $t$. The figure below plots our model $P$ with the real number of cases.</p>
+
+<p><img src="/images/logistic_final_chart.png" alt="Linear Regression" /></p>
+
+<p>Our logistic growth model $P$ is in red, the real observed data points
+used to estimate the model are in blue, and the new data points 
+that have been collected since I created the model are in yellow.</p>
+
+<p>For the new data points on February 10 and February 11, the prediction from our model
+is $1.7\%$ and $2.2\%$ off from the real reported total number of cases up to that day.
+Pretty good!</p>
+
+<p>This model also predicts that the total number of cases will stop growing at
+$K = 51109$, and the daily number of new cases will be less than 100 starting on February 23.</p>
+
+<h1 id="limitations">Limitations</h1>
+
+<p>You probably noticed on the last figure: what happened on February 12? Why is our estimation
+so off on that day? Despite the initial accuracy of the logistic growth model, the model
+has limitations, and the real world is much more complex.</p>
+
+<p>As an example, as I was writing this post, the Chinese government <a href="https://www.nytimes.com/2020/02/12/world/asia/china-coronavirus-cases.html">changed the definition of how
+it counts people infected with the coronavirus</a>,
+resulting in the 15,000 additional cases on February 12 in the figure above.</p>
+
+<p>Furthermore, the model will not take into account new outbreaks that might happen in different cities,
+which may result in a sudden growth in new infections. As the Lunar New Year holiday in China ends and
+more people start to travel again, this may also increase the rate of infection, reducing the constraining factor
+essential to the logistic growth model.</p>
+
+<p>Despite these limitations, the logistic growth model provides us with a surprisingly
+accurate way to model the number of coronavirus cases so far using only basic calculations
+that can be done in a spreadsheet!</p>
+
+<p>Thanks for reading! I hope you learned something new!</p>
+
+<h1 id="links">Links</h1>
+
+<ul>
+  <li>[1] <a href="https://en.wikipedia.org/wiki/Logistic_function">Logistic Growth Model</a></li>
+  <li>[2] <a href="https://en.wikipedia.org/wiki/Functional_programming">Functional Programming</a> – A key factor in functional programming is understanding the types. The best way for me to understand new concepts is to understand the types and their relationships with each other.</li>
+  <li>[3] <a href="https://www.youtube.com/watch?v=ovJcsL7vyrk">Youtube video from Veritasium explaining the logistic growth equation and other interesting facts about it</a></li>
+  <li>[4] <a href="https://en.wikipedia.org/wiki/Linear_regression">Linear Regression</a></li>
+  <li>[5] <a href="https://www.maa.org/press/periodicals/loci/joma/logistic-growth-model-fitting-a-logistic-model-to-data-i">Logistic Growth Model: Fitting a Logistic Model to Data</a></li>
+  <li>[6] <a href="https://www.worldometers.info/coronavirus/coronavirus-cases/">Worldometer: Coronavirus Cases</a> – This is where I obtained the <code class="highlighter-rouge">(date, number of coronavirus cases)</code> data. In this post, I used the data from January 23 to February 9 to estimate the parameters for the model.</li>
+  <li>[7] <a href="https://en.wikipedia.org/wiki/Random_sample_consensus">Random Sample Consensus (RANSAC)</a></li>
+  <li>[8] <a href="https://docs.google.com/spreadsheets/d/144t1-LOYBLMuPm4ojgLeP_RddcNPnF_8sD5CVtUTfCo/edit#gid=0">Google Sheet where these calulations were done</a></li>
+</ul>
+
+  </div><a class="u-url" href="/blog/2020/02/11/coronavirus-logistic-growth/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">kennary island</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">kennary island</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/kennyyu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">kennyyu</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Writing Synchronization Problems for OS161 | kennary island</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Writing Synchronization Problems for OS161" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This semester, I have the privilege of being a teaching fellow for Harvard’s legendary operating systems class, and I was tasked with writing the synchronization problems for this year’s synchprobs assignment! The goal of these problems is to get students to think carefully about the synchronization primitives and data structures needed to solve highly concurrent problems, avoiding the usual problems that come with concurrency: race conditions, deadlock, starvation, etc. I remember how fun these problems were last year (forming little fellowships of the ring and piazza posts, meant to mimic creating barriers and reader-writer locks), and I wanted to make sure the problems were just as fun this year. I was tasked specifically to write problems to mimic the synchronization one would use to implement waitpid()/exit() (how would you do it?) and the synchronization needed between address spaces and the coremap when implementing a virtual memory system in the third assignment. Given these specifications, I came up with Singing Cows and Hunger Deletion Games synchprobs!" />
+<meta property="og:description" content="This semester, I have the privilege of being a teaching fellow for Harvard’s legendary operating systems class, and I was tasked with writing the synchronization problems for this year’s synchprobs assignment! The goal of these problems is to get students to think carefully about the synchronization primitives and data structures needed to solve highly concurrent problems, avoiding the usual problems that come with concurrency: race conditions, deadlock, starvation, etc. I remember how fun these problems were last year (forming little fellowships of the ring and piazza posts, meant to mimic creating barriers and reader-writer locks), and I wanted to make sure the problems were just as fun this year. I was tasked specifically to write problems to mimic the synchronization one would use to implement waitpid()/exit() (how would you do it?) and the synchronization needed between address spaces and the coremap when implementing a virtual memory system in the third assignment. Given these specifications, I came up with Singing Cows and Hunger Deletion Games synchprobs!" />
+<link rel="canonical" href="http://kennyyu.me/blog/2014/03/20/writing-synchronization-problems-for-os161/" />
+<meta property="og:url" content="http://kennyyu.me/blog/2014/03/20/writing-synchronization-problems-for-os161/" />
+<meta property="og:site_name" content="kennary island" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-03-20T01:25:00-07:00" />
+<script type="application/ld+json">
+{"description":"This semester, I have the privilege of being a teaching fellow for Harvard’s legendary operating systems class, and I was tasked with writing the synchronization problems for this year’s synchprobs assignment! The goal of these problems is to get students to think carefully about the synchronization primitives and data structures needed to solve highly concurrent problems, avoiding the usual problems that come with concurrency: race conditions, deadlock, starvation, etc. I remember how fun these problems were last year (forming little fellowships of the ring and piazza posts, meant to mimic creating barriers and reader-writer locks), and I wanted to make sure the problems were just as fun this year. I was tasked specifically to write problems to mimic the synchronization one would use to implement waitpid()/exit() (how would you do it?) and the synchronization needed between address spaces and the coremap when implementing a virtual memory system in the third assignment. Given these specifications, I came up with Singing Cows and Hunger Deletion Games synchprobs!","@type":"BlogPosting","headline":"Writing Synchronization Problems for OS161","dateModified":"2014-03-20T01:25:00-07:00","datePublished":"2014-03-20T01:25:00-07:00","url":"http://kennyyu.me/blog/2014/03/20/writing-synchronization-problems-for-os161/","mainEntityOfPage":{"@type":"WebPage","@id":"http://kennyyu.me/blog/2014/03/20/writing-synchronization-problems-for-os161/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://kennyyu.me/feed.xml" title="kennary island" /><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+    });
+  </script>
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">kennary island</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/archives/">Archives</a><a class="page-link" href="/projects/">Projects</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Writing Synchronization Problems for OS161</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-03-20T01:25:00-07:00" itemprop="datePublished">Mar 20, 2014
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This semester, I have the privilege of being a teaching fellow
+for Harvard’s legendary <a href="http://www.eecs.harvard.edu/~margo/cs161/">operating systems class</a>,
+and I was tasked with writing the synchronization problems for
+this year’s synchprobs assignment! The goal of these problems
+is to get students to think carefully about the synchronization
+primitives and data structures needed to solve highly concurrent
+problems, avoiding the usual problems that come with concurrency:
+race conditions, deadlock, starvation, etc.</p>
+
+<p>I remember how fun these problems
+were last year (forming little fellowships of the ring and piazza posts,
+meant to mimic creating barriers and reader-writer locks), and
+I wanted to make sure the problems were just as fun this year.
+I was tasked specifically to write problems to mimic the
+synchronization one would use to implement <code class="highlighter-rouge">waitpid()</code>/<code class="highlighter-rouge">exit()</code>
+(how would you do it?) and the synchronization needed
+between address spaces and the coremap when implementing
+a virtual memory system in the third assignment. Given
+these specifications, I came up with
+<strong>Singing Cows</strong> and <strong><del>Hunger</del> Deletion Games</strong> synchprobs!</p>
+
+<!-- more -->
+
+<p>To keep up with the playful spirit of the problems, I
+disguised the waitpid/exit problem as a <strong>Singing Cows Problem</strong>:
+a daddy cow must wait until each baby cow finishes
+singing “Call Me Maybe” before the daddy cow can congratulate
+the baby! The final version of the problem eventually
+mimicked <code class="highlighter-rouge">wait()</code> instead, essentially making the daddy
+cow wait until <strong>any</strong> baby cow finishes singing.</p>
+
+<p>I had just watched <em>Hunger Games: Catching Fire</em>, and this
+was my inspiration for the second problem: <strong><del>Hunger</del> Deletion Games</strong>.
+In this problem, Katniss and Peeta each have multiple threads
+and are attempting to sever mappings between the districts
+and the capitol (for the sake of the problem, assume there
+are <code class="highlighter-rouge">NSLOTS</code> districts). These mappings are represented
+by a bijection between
+capitol slots and district slots. The catch in this problem,
+however, is that Katniss and Peeta are concurrently deleting
+from opposite sides (Katniss from the capitol side and Peeta
+from the district side), so students must avoid
+both race conditions (concurrent deletions of the same slot)
+and deadlock (concurrent deletions of the same mapping
+from opposite sides). This situation mimics the coremap-address
+space situation in which threads handling a page fault
+need to access a page table entry and then
+a coremap entry, while a cleaner thread simultaenously needs
+to access a coremap entry and then the corresponding page
+table entry. I remember it took me several weeks last year to fully
+understand the synchronization needed for this coremap-address space
+situation, and I was curious to see what kinds of solutions
+students came up with. How would <strong>you</strong> solve this problem?</p>
+
+<p>To see the source code for the problems and scripts to
+check the solutions, see the <a href="https://github.com/kennyyu/cs161-a1scripts">github repo</a>.</p>
+
+<p>The problem statements are shown below. Correct implementations should
+avoid big lock solutions, and should not allow race conditions,
+deadlocks, and starvation.</p>
+
+<h2 id="singing-cows">Singing Cows</h2>
+
+<p>A cow has many children. Each baby cow puts on a performance by singing
+lyrics to “Call Me Maybe.” Like a good parent, the daddy cow must
+sit through each one of its baby cow’s performances until the end, in order
+to say “Congratulations Baby N!” where N corresponds to the N-th baby cow.</p>
+
+<p>At any given moment, there is a single parent cow and possibly multiple
+baby cows singing. The parent cow is not allowed to congratulate a baby
+cow until that baby cow has finished singing. Your solution CANNOT
+wait for ALL the cows to finish before starting to congratulate the babies.</p>
+
+<p>Here is an example of correct looking output:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+Baby   1 Cow: Hot night, wind was blowin'
+Baby   2 Cow: Ripped jeans, skin was showin'
+Baby   4 Cow: Don't ask me, I'll never tell
+Baby   5 Cow: And this is crazy
+Baby   8 Cow: Hot night, wind was blowin'
+Parent   Cow: Congratulations Baby 7!
+Baby   1 Cow: And now you're in my way
+Baby   2 Cow: And now you're in my way
+Baby   4 Cow: Hey, I just met you
+Baby   5 Cow: Pennies and dimes for a kiss
+Baby   8 Cow: But now you're in my way
+Parent   Cow: Congratulations Baby 1!
+Baby   2 Cow: Ripped jeans, skin was showin'
+Baby   4 Cow: I'd trade my soul for a wish
+Baby   8 Cow: Hey, I just met you
+Parent   Cow: Congratulations Baby 5!
+Baby   2 Cow: Your stare was holdin'
+Baby   4 Cow: But now you're in my way
+Baby   8 Cow: Don't ask me, I'll never tell
+Baby   2 Cow: Your stare was holdin'
+Baby   4 Cow: Hot night, wind was blowin'
+Baby   8 Cow: But now you're in my way
+Baby   2 Cow: Your stare was holdin'
+Baby   4 Cow: I'd trade my soul for a wish
+Baby   8 Cow: But here's my number
+Baby   2 Cow: Ripped jeans, skin was showin'
+Baby   4 Cow: But now you're in my way
+Baby   8 Cow: But now you're in my way
+Parent   Cow: Congratulations Baby 2!
+Baby   4 Cow: Your stare was holdin'
+Baby   8 Cow: Hey, I just met you
+Baby   4 Cow: And this is crazy
+Baby   8 Cow: I wasn't looking for this
+</code></pre></div></div>
+
+<h2 id="hunger-deletion-games"><del>Hunger</del> Deletion Games</h2>
+
+<p>Katniss and Peeta are tired of Hunger Games and want to play a new kind
+of game instead, the Deletion Games! They want to sever all ties between
+the Capitol and all of its districts (for the sake of this problem, assume
+that there are actually <code class="highlighter-rouge">NSLOTS</code> districts). Katniss is severing ties
+from the Capitol side, and Peeta is severing ties from the Districts’ side.</p>
+
+<p>There is a 1:1 correspondence between <code class="highlighter-rouge">capitol_slots</code> and <code class="highlighter-rouge">district_slots</code>. This
+means that each slot in <code class="highlighter-rouge">capitol_slots</code> has exactly one corresponding entry in
+<code class="highlighter-rouge">district_slots</code>, and each slot in <code class="highlighter-rouge">district_slots</code> has exactly one corresponding
+entry in <code class="highlighter-rouge">capitol_slots</code>. More formally:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>For all i in {0, 1, 2, ..., NSLOTS - 1},
+if capitol_slot[i].is_mapped == true, then
+district_slot[capitol_slot[i].district_index].is_mapped == true AND
+district_slot[capitol_slot[i].district_index].capitol_index == i
+
+AND similarly if district_slot[i].is_mapped == true.
+</code></pre></div></div>
+
+<p>Katniss and Peeta each will use <code class="highlighter-rouge">NTHREADS</code> to delete these mappings. Katniss
+will delete mappings based on randomly generated capitol indices, and Peeta
+will delete mappings based on randomly generated district indices.</p>
+
+<p>For example, suppose Katniss randomly chooses capitol index 4 to delete.
+She looks at capital slot 4, sees that the slot is still mapped, and finds
+the corresponding district index is 12. Then Katniss will free the mappings
+in capitol slot 4 and district slot 12.</p>
+
+<p>Suppose Peeta, on the other hand, randomly chooses district index 12 to
+delete. He looks at district slot 12, sees that the slot is still mapped,
+and finds the corresponding capitol index is 4. Then Peeta will free the
+mappings in district slot 12 and capitol slot 4.</p>
+
+<p>However, without proper synchronization, we may get:</p>
+
+<ul>
+  <li>race conditions: if multiple threads attempt to delete the same mappings at the same time</li>
+  <li>deadlock: Katniss and Peeta try to delete the (capitol 4, district 12)
+mappings at the same time starting from opposite sides</li>
+  <li>starvation: all the mappings must eventually be deleted</li>
+</ul>
+
+<p>Your solution must satisfy these conditions:</p>
+
+<ul>
+  <li>Avoid race conditions.</li>
+  <li>Avoid any unsynchronized reads (reads on a shared variable without holding the mutex for that variable).</li>
+  <li>No threads may exit until all the mappings have been deleted.</li>
+  <li>Guarantee no deadlock can occur. Your invariants and comments should
+provide a convincing proof of this.
+HINT: You should insert well-placed <code class="highlighter-rouge">thread_yield()</code> calls in your code to
+convince yourself of no deadlock.</li>
+  <li>When Katniss and Peeta generate random indices to delete, you may decide
+to IGNORE that index if you wish and move onto the next index. However,
+all mappings must eventually be deleted.
+HINT: Use this to your advantage to introduce some asymmetry to the
+problem.</li>
+</ul>
+
+<p>Here is an example of correct looking output:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+{who: katniss, capitol: 86, district: 16, deleted: 114}
+{who: katniss, capitol: 108, district: 97, deleted: 115}
+{who: peeta, capitol: 89, district: 13, deleted: 116}
+{who: katniss, capitol: 103, district: 49, deleted: 117}
+{who: katniss, capitol: 5, district: 91, deleted: 118}
+{who: peeta, capitol: 57, district: 44, deleted: 119}
+{who: katniss, capitol: 39, district: 81, deleted: 120}
+{who: katniss, capitol: 55, district: 96, deleted: 121}
+{who: peeta, capitol: 101, district: 64, deleted: 122}
+{who: katniss, capitol: 44, district: 58, deleted: 123}
+{who: katniss, capitol: 59, district: 78, deleted: 124}
+{who: katniss, capitol: 80, district: 85, deleted: 125}
+{who: katniss, capitol: 122, district: 88, deleted: 126}
+{who: katniss, capitol: 67, district: 114, deleted: 127}
+{who: katniss, capitol: 61, district: 17, deleted: 128}
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/blog/2014/03/20/writing-synchronization-problems-for-os161/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">kennary island</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">kennary island</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/kennyyu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">kennyyu</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

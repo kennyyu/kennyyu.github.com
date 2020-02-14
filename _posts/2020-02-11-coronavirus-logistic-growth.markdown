@@ -16,6 +16,8 @@ accurate modeling of a very complicated natural phenomenon!**
 
 ![Linear Regression](/images/logistic_final_chart.png)
 
+<!-- more -->
+
 In school, we are typically given a function and then asked to calculate some properties about
 the function. For example, we might be asked to compute the value of the function for some given input:
 

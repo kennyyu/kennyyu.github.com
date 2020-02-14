@@ -3,6 +3,7 @@ layout: post
 title: "Modeling Number of Coronavirus Cases with Logistic Growth"
 date: 2020-02-11 20:00
 cateogories: [math]
+excerpt_separator: <!-- more -->
 ---
 
 If you have been following the news recently, you may have
@@ -12,6 +13,8 @@ how many cases will we expect in the future, and at what point can we expect the
 In this post, I'll attempt to answer these questions with mathematical modeling.
 **With only a basic understanding of calculus and some calculations easily done in a spreadsheet, we can perform very
 accurate modeling of a very complicated natural phenomenon!**
+
+![Linear Regression](/images/logistic_final_chart.png)
 
 In school, we are typically given a function and then asked to calculate some properties about
 the function. For example, we might be asked to compute the value of the function for some given input:
@@ -283,13 +286,14 @@ so off on that day? Despite the initial accuracy of the logistic growth model, t
 has limitations, and the real world is much more complex.
 
 As an example, as I was writing this post, the Chinese government [changed the definition of how
-it counts people infected with the coronavirus](https://www.nytimes.com/2020/02/12/world/asia/china-coronavirus-cases.html),
+it counts coronavirus cases](https://www.nytimes.com/2020/02/12/world/asia/china-coronavirus-cases.html),
 resulting in the 15,000 additional cases on February 12 in the figure above. 
-
 Furthermore, the model will not take into account new outbreaks that might happen in different cities,
 which may result in a sudden growth in new infections. As the Lunar New Year holiday in China ends and
 more people start to travel again, this may also increase the rate of infection, reducing the constraining factor
-essential to the logistic growth model.
+essential to the logistic growth model. In addition, the logistic growth model assumes a constant
+growth factor $r$, however, the coronavirus may behave differently in different people, and it may
+evolve to become more or less infectious over time.
 
 Despite these limitations, the logistic growth model provides us with a surprisingly
 accurate way to model the number of coronavirus cases so far using only basic calculations

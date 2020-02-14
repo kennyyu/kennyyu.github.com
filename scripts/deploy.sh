@@ -1,6 +1,7 @@
 #!/bin/bash -ex
 
 git status
+current_branch=$(git rev-parse --abbrev-ref HEAD)
 bundle exec jekyll build
 tmpdir=$(mktemp -d)
 mv _site $tmpdir
@@ -13,3 +14,4 @@ cp -R $tmpdir/_site/* .
 git add *
 git commit -am "Site published at $(date)"
 git push origin HEAD:master
+git checkout $current_branch
